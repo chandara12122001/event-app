@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', [EventController::class, 'index']);
+// Route::get('/', [EventController::class, 'index']);
 
 Route::resource('/event', EventController::class);
 Route::resource('/user', UserController::class);
