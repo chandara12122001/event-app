@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +21,7 @@ Route::get('/', function () {
 });
 
 Route::get('/', [EventController::class, 'index']);
+
+Route::resource('/event', EventController::class);
+Route::resource('/user', UserController::class);
+Route::resource('/location', LocationController::class);
