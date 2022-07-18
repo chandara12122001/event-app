@@ -11,4 +11,7 @@ class EventController extends Controller
     public function index(){
         return Event::with(['user', 'location'])->get();
     }
+    public function create(){
+        return view('event.create');
+    }
 }
