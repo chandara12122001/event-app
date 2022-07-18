@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -24,6 +25,7 @@ class EventController extends Controller
     public function create()
     {
         //
+        return view('event.create');
     }
 
     /**
@@ -35,6 +37,25 @@ class EventController extends Controller
     public function store(Request $request)
     {
         //
+        $images = array();
+        if($files = $request->file('files')){
+            foreach($files as $file){
+                $image_name = md5(rand(1000,10000));
+                $ext = strtolower($file->getClientOriginalExtension());
+                $image_full_name =  $image_name.'.'.$ext;
+                $upload_path = 'images/';
+                $image_url = $upload_path.$image_full_name;
+                $file->move($upload_path,$image_full_name);
+                $images[] = $image_url;
+            }
+        }
+        Event::insert([
+            'images' => implode('|', $images),
+            'event_date'=> $request->event_date,
+            'description'=> $request->description,
+            'price'=>$request->price,
+            'no_of_seats'=>$request->no_of_seats
+        ]);
     }
 
     /**
@@ -79,9 +100,6 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
-    public function create(){
-        return view('event.create');
+        //  
     }
 }

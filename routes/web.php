@@ -22,6 +22,8 @@ Route::get('/', function () {
 
 // Route::get('/', [EventController::class, 'index']);
 
-Route::resource('/event', EventController::class);
-Route::resource('/user', UserController::class);
-Route::resource('/location', LocationController::class);
+Route::get('/event', [EventController::class, 'index'])->name('event.index');
+Route::get('/event/new', [EventController::class, 'create'])->name('event.create');
+Route::post('/event', [EventController::class, 'store'])->name('event.store');
+// Route::get('/user', UserController::class);
+// Route::get('/location', LocationController::class);
