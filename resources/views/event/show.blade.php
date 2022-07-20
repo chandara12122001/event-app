@@ -6,9 +6,9 @@
 @endsection
 
 @section('content')
-<section class="w-full">
+<section class="w-full mx-auto">
     {{-- hero container --}}
-    <div class="w-full relative">
+    <div class="w-full relative mx-auto">
         {{-- z-index -1 --}}
         <img class="w-full h-screen z-0"
             src="https://images.pexels.com/photos/1157557/pexels-photo-1157557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -21,7 +21,7 @@
         </div>
     </div>
     {{-- offers section --}}
-    <div class="flex w-1/2 mx-auto justify-between mt-8">
+    <div class="flex sm:w-3/4 lg:w-1/2 mx-auto justify-between mt-8">
         <div class="text-2xl text-center">
             <i class="fa-solid fa-wifi icon text-5xl"></i>
             <p class="">Wifi Access</p>
@@ -73,7 +73,7 @@
                 </div>
             </div>
             {{-- --}}
-            <div class="w-1/2 h-full ml-4">
+            <div class="w-1/2 lg:h-full ml-4">
                 {{-- oraganizer --}}
                 <div class="relative w-full h-1/4" style="border: 3px solid #0BF09ED1">
                     <div class="absolute right-0" style="background-color: #0BF09ED1">
@@ -107,8 +107,8 @@
                         <p class="inline ml-4 font-light">20 seats are available</p>
                     </div>
                     <div class="w-full text-center">
-                        <button class="w-1/3 bg-second px-6 py-2">Interested</button>
-                        <button class="w-1/3 bg-third px-6 py-2">Going</button>
+                        <button class="w-1/3 px-6 py-2 btn-second text-white">Interested</button>
+                        <button class="w-1/3 px-6 py-2 btn-third text-white">Going</button>
                     </div>
                 </div>
             </div>

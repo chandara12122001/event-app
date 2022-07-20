@@ -15,3 +15,38 @@
 .bg-third{
     background-color: #FF8989;
 }
+.link::after {
+    display: block;
+    content: '';
+    border-bottom: solid 1px black;
+    color: white;
+    text-decoration: none;
+    transform: scaleX(0);
+    transition: transform 150ms ease-in-out;
+}
+
+.link:hover::after {
+    transform: scaleX(1);
+}
+
+.btn-second {
+    background-color: #0BF09ED1;
+    transition: all 0.4s;
+}
+
+.btn-second:hover {
+    background-color: white;
+    color: #0BF09ED1;
+}
+
+.btn-third {
+    background-color: #FF8989;
+    transition: all 0.4s;
+}
+
+.btn-third:hover {
+    background-color: white;
+    color: #FF8989;
+}
+
+

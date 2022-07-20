@@ -1,4 +1,4 @@
-<div class="w-full bg-white py-12 px-32">
+<div class="w-full bg-white py-12 px-32 rounded-t-xl">
     <div class="flex flex-row space-x-3 justify-between items-center">
         <div class="flex flex-col space-y-3 w-1/3">
             <div class="w-48 px-10">
