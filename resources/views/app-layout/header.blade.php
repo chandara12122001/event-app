@@ -1,7 +1,4 @@
 {{-- Start Header --}}
-@section('css')
-    <link rel="stylesheet" href="{{asset('app/show.css')}}">
-@endsection
 <div class="w-full min-w-min-content py-3 px-52 bg-white sticky top-0">
     <nav class="uppercase text-xl">
         <div class="flex flex-row space-x-5 items-center justify-between">
