@@ -16,7 +16,8 @@ class Event extends Model
         'price',
         'user_id',
         'location_id',
-        'images'
+        'images',
+        'title'
     ];
 
     public function user(){
