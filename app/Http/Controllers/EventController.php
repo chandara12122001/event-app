@@ -24,7 +24,10 @@ class EventController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
+=======
         //
+>>>>>>> 12da7409adfec2dc720d89be820667bdc75a0cd2
         return view('event.create');
     }
 
