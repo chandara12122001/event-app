@@ -29,3 +29,5 @@ Route::get('/', function () {
 // Route::get('/location', LocationController::class);
 
 Route::resource('/event', EventController::class);
+Route::resource('/location', LocationController::class);
+Route::resource('/user', UserController::class);
