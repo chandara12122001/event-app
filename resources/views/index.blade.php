@@ -199,5 +199,66 @@
             </div>
         </div>
         {{-- End selected event --}}
+        {{-- Start event cards --}}
+            <div class="px-32 my-10">
+                <div class="flex flex-col space-y-10">
+                    @for ($j=0; $j<6; $j++)
+                        <div class="flex flex-row space-x-10">
+                            @for ($i=0; $i<2; $i++)
+                                <div style="background-image: url(https://nextcloud.com/wp-content/uploads/2022/04/grouppic2019-scaled.jpg)" class=" rounded-md w-1/2 bg-cover bg-center">
+                                    <div class="p-5 bg-gradient-to-r from-gray-900 to-transparent w-full h-full rounded-md">
+                                        <div class="flex flex-col space-y-5 text-white">
+                                            <div class="font-bold text-2xl">
+                                                <h1>CADT Community meet up</h1>
+                                            </div>
+                                            <div class="flex flex-row space-x-14">
+                                                <div class="flex flex-row space-x-3">
+                                                    <div>
+                                                        <i class="fa-solid fa-location-dot"></i>
+                                                    </div>
+                                                    <div>
+                                                        <p>
+                                                            Innovation Center
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex flex-row space-x-3">
+                                                    <div>
+                                                        <i class="fa-solid fa-calendar-day"></i>
+                                                    </div>
+                                                    <div>
+                                                        <p>
+                                                            30 July 2022
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex flex-row space-x-3">
+                                                    <div>
+                                                        <i class="fa-solid fa-ticket"></i>
+                                                    </div>
+                                                    <div>
+                                                        <p>
+                                                            Free entry
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="w-full flex flex-row rounded-xl border border-white">
+                                                <div class="w-3/5 bg-green-400 text-center p-2 rounded-xl">
+                                                    Interested
+                                                </div>
+                                                <div class="w-2/5 text-center p-2">
+                                                    Learn more
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endfor
+                        </div>  
+                    @endfor
+                </div>
+            </div>
+        {{-- End event cards --}}
     </div>
 @endsection
