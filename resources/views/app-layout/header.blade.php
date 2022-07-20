@@ -14,7 +14,7 @@
                     <a href="/">home</a>
                 </div>
                 <div class="px-3 py-5 hover:bg-red-400 hover:text-white hover:cursor-pointer">
-                    <a href="/">all events</a>
+                    <a href="{{route('allevents')}}">all events</a>
                 </div>
                 <div class="px-3 py-5 hover:bg-red-400 hover:text-white hover:cursor-pointer">
                     <a href="event/create">post event</a>
