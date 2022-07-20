@@ -1,5 +1,5 @@
 {{-- Start Header --}}
-<div class="w-full min-w-min-content py-5 px-52">
+<div class="w-full min-w-min-content py-3 px-52 bg-white sticky top-0">
     <nav class="uppercase text-xl">
         <div class="flex flex-row space-x-5 items-center justify-between">
             <div>
