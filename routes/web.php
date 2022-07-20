@@ -33,3 +33,9 @@ Route::post('/event', [EventController::class, 'store'])->name('event.store');
 // Route::get('/location', LocationController::class);
 
 Route::resource('/event', EventController::class);
+Route::resource('/location', LocationController::class);
+Route::resource('/user', UserController::class);
+
+Route::get('/allevents', function(){
+    return view('all-events');
+})->name('allevents');
