@@ -13,13 +13,14 @@
 
         <h3 class="jumbotron">Laravel Multiple File Upload</h3>
         <form method="post" action="{{route('event.store')}}" enctype="multipart/form-data">
-            {{csrf_field()}}
+            @csrf
 
             <div class="input-group control-group increment">
+                <input type="text" name="title" placeholder="Event title">
                 <input type="file" name="files[]" multiple class="form-control">
                 <input type="text" placeholder="description" name="description">
-                <input type="text" placeholder="price" name="price">
-                <input type="text" placeholder="no_of_seats" name="no_of_seats">
+                <input type="number" placeholder="price" name="price">
+                <input type="number" placeholder="no_of_seats" name="no_of_seats">
                 <input type="date" name="event_date">
                 <div class="input-group-btn">
                     <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Location;
 use Illuminate\Http\Request;
 
 class LocationController extends Controller
@@ -35,6 +36,20 @@ class LocationController extends Controller
     public function store(Request $request)
     {
         //
+        dd('location ok');
+        $this->validate(
+            $request,
+            [
+                'name' => 'required|max:50',
+            ]
+        );
+
+        Location::create(
+            [
+                'name' => $request->name,
+            ]
+        );
+        return redirect()->back();
     }
 
     /**

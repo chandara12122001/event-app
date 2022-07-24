@@ -12,12 +12,12 @@ class Event extends Model
     protected $fillable = [
         'event_date',
         'description',
-        'interested',
+        'no_of_seats',
         'price',
         'user_id',
         'location_id',
-        'images',
-        'title'
+        'title',
+        'going',
     ];
 
     public function user(){
@@ -26,5 +26,9 @@ class Event extends Model
 
     public function location(){
         return $this->belongsTo(Location::class);
+    }
+
+    public function images(){
+        return $this->hasMany(Image::class);
     }
 }

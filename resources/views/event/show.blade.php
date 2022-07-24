@@ -6,13 +6,19 @@
 @endsection
 
 @section('content')
+@php
+$images = explode('|', $event->images)
+@endphp
 <section class="w-full mx-auto">
     {{-- hero container --}}
     <div class="w-full relative mx-auto">
         {{-- z-index -1 --}}
-        <img class="w-full h-screen z-0"
+        @foreach ($images as $item)
+        <img src="{{asset($item)}}" alt="">
+        @endforeach
+        {{-- <img class="w-full h-screen z-0"
             src="https://images.pexels.com/photos/1157557/pexels-photo-1157557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            alt="">
+            alt=""> --}}
         <div class="text-white absolute top-3/4 left-1/4 pr-4">
             <h1 class="text-4xl">event.title</h1>
             <p class="text-lg w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, eos fugiat cumque
@@ -68,8 +74,8 @@
         {{-- map --}}
         <div class="flex w-full h-screen mt-8">
             <div class="w-1/2">
-                <div class="w-full text-center py-4" style="background-color: #FF8989">
-                    <a class="w-full text-center py-4 text-white font-bold text-lg" > View on Map</a>
+                <div class="w-full text-center py-4 btn-third">
+                    <a class="w-full text-center py-4 text-white font-bold text-lg hover:text-pink-600"> View on Map</a>
                 </div>
             </div>
             {{-- --}}
@@ -81,30 +87,30 @@
                     </div>
                     <div class="text-2xl px-6 py-4">
                         <i class="fa-solid fa-user icon-secondary"></i>
-                        <p class="inline ml-4 font-light">Sovortey Ly</p>
+                        <p class="inline ml-4 font-light">{{$event->user->name}}</p>
                     </div>
                     <div class="text-2xl px-6 py-4">
                         <i class="fa-solid fa-phone icon-secondary"></i>
-                        <p class="inline ml-4 font-light">No call allowed</p>
+                        <p class="inline ml-4 font-light">{{$event->user->phone_number}}</p>
                     </div>
                     <div class="text-2xl px-6 py-4">
                         <i class="fa-solid fa-envelope icon-secondary"></i>
-                        <p class="inline ml-4 font-light">sovorteyly1403@gmail.com</p>
+                        <p class="inline ml-4 font-light">{{$event->user->email}}</p>
                     </div>
                 </div>
                 {{-- event info --}}
                 <div class="mt-4">
                     <div class="text-xl px-6 py-4">
                         <i class="fa-solid fa-calendar-check color-third"></i>
-                        <p class="inline ml-4 font-light">500 people are going</p>
+                        <p class="inline ml-4 font-light">{{$event->going}} are going to the event.</p>
                     </div>
                     <div class="text-xl px-6 py-4">
                         <i class="fa-solid fa-star color-third"></i>
-                        <p class="inline ml-4 font-light">250 people are interested</p>
+                        <p class="inline ml-4 font-light">{{$event->interested}} people are interested</p>
                     </div>
                     <div class="text-xl px-6 py-4">
                         <i class="fa-solid fa-chair color-third"></i>
-                        <p class="inline ml-4 font-light">20 seats are available</p>
+                        <p class="inline ml-4 font-light">{{$event->no_of_seats}} seats are available</p>
                     </div>
                     <div class="w-full text-center">
                         <button class="w-1/3 px-6 py-2 btn-second text-white">Interested</button>

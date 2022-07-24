@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File; 
 
 class EventController extends Controller
 {
@@ -24,7 +26,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        // return view('event.create');
+        return view('event.create');
     }
 
     /**
@@ -35,8 +37,22 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $images = array();
+        // dd(auth()->user());
+        $this->validate($request, [
+            'title'=> 'required',
+            'event_date'=>'required',
+            'description'=>'required',
+            'price'=>'required',
+            'no_of_seats'=>'required'
+        ]);
+        $event = new Event([
+            'title'=>$request->title,
+            'description'=>$request->description,
+            'price'=>$request->price,
+            'no_of_seats'=>$request->no_of_seats,
+            'user_id'=>auth()->user()->id,
+        ]);
+        $event->save();
         if($files = $request->file('files')){
             foreach($files as $file){
                 $image_name = md5(rand(1000,10000));
@@ -45,16 +61,12 @@ class EventController extends Controller
                 $upload_path = 'images/';
                 $image_url = $upload_path.$image_full_name;
                 $file->move($upload_path,$image_full_name);
-                $images[] = $image_url;
+                $request['event_id'] = $event->id;
+                $request['image'] =$image_url;
+                Image::create($request->all());
             }
         }
-        Event::insert([
-            'images' => implode('|', $images),
-            'event_date'=> $request->event_date,
-            'description'=> $request->description,
-            'price'=>$request->price,
-            'no_of_seats'=>$request->no_of_seats
-        ]);
+        return redirect().route('/event/'.$event->id);
     }
 
     /**
@@ -66,7 +78,9 @@ class EventController extends Controller
     public function show($id)
     {
         //
-        return view('event.show');
+        $event = Event::findOrFail($id);
+        // dd($event->user->name);
+        return view('event.show', compact('event'));
     }
 
     /**
@@ -77,7 +91,8 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        //
+        $event = Event::findOrFail($id);
+        return view('event.edit', compact('event'));
     }
 
     /**
@@ -89,7 +104,28 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $event = Event::findOrFail($id);
+        $event->update([
+            'title'=>$request->title,
+            'description'=>$request->description,
+            'price'=>$request->price,
+            'no_of_seats'=>$request->no_of_seats
+        ]);
+
+        if($files = $request->file('files')){
+            foreach($files as $file){
+                $image_name = md5(rand(1000,10000));
+                $ext = strtolower($file->getClientOriginalExtension());
+                $image_full_name =  $image_name.'.'.$ext;
+                $upload_path = 'images/';
+                $image_url = $upload_path.$image_full_name;
+                $file->move($upload_path,$image_full_name);
+                $request['event_id'] = $event->id;
+                $request['image'] =$image_url;
+                Image::create($request->all());
+            }
+        }
+        return redirect('/');
     }
 
     /**
@@ -101,5 +137,15 @@ class EventController extends Controller
     public function destroy($id)
     {
         //  
+        $event = Event::findOrFail($id);
+
+        $images = Image::where('event_id', $event->id)->get();
+        foreach($images as $image){
+            if(File::exists(asset($image))){
+                File::delete(asset($image));
+            }
+        }
+        $event->delete();
+        return back();
     }
 }
