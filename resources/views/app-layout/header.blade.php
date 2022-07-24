@@ -12,21 +12,33 @@
                     </a>
                 </div>
             </div>
-            <div class="flex flex-row justify-end items-center space-x-10 min-w-min-content">
-                <div class="px-3 py-5 link">
-                    <a href="/">home</a>
+            <div class="hidden lg:block">
+                <div class="flex flex-row justify-end items-center space-x-10 min-w-min-content">
+                    <div class="px-3 py-5 link">
+                        <a href="/">home</a>
+                    </div>
+                    <div class="px-3 py-5 link">
+                        <a href="{{route('allevents')}}">all events</a>
+                    </div>
+                    <div class="px-3 py-5 link">
+                        <a href="event/create">post event</a>
+                    </div>
+                    <div class="px-3 py-5 link">
+                        <a href="/">about us</a>
+                    </div>
+                    <div class="px-3 py-5 link">
+                        <a href="/">contact us</a>
+                    </div>
                 </div>
-                <div class="px-3 py-5 link">
-                    <a href="{{route('allevents')}}">all events</a>
-                </div>
-                <div class="px-3 py-5 link">
-                    <a href="event/create">post event</a>
-                </div>
-                <div class="px-3 py-5 link">
-                    <a href="/">about us</a>
-                </div>
-                <div class="px-3 py-5 link">
-                    <a href="/">contact us</a>
+            </div>
+            <div class="block lg:hidden">
+                <div class="border-none bg-blue-500 text-white p-3 flex space-x-3 rounded-md text-lg cursor-pointer">
+                    <div>
+                        <i class="fa-solid fa-grip"></i>
+                    </div>
+                    <div>
+                        Menu
+                    </div>
                 </div>
                 @auth
                     <div class="px-3 py-5 link">

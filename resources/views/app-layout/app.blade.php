@@ -19,4 +19,6 @@
     @include('app-layout.footer')
 </body>
 
+<script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
+
 </html>

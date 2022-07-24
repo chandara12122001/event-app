@@ -2,6 +2,8 @@ module.exports = {
   purge: [
     './resources/views/**/*.blade.php',
     './resources/css/**/*.css',
+    './src/**/*.{html,js}', 
+    './node_modules/tw-elements/dist/js/**/*.js',
   ],
   theme: {
     extend: {
@@ -14,5 +16,6 @@ module.exports = {
   variants: {},
   plugins: [
     require('@tailwindcss/ui'),
+    require('tw-elements/dist/plugin')
   ]
 }
