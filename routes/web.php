@@ -51,3 +51,7 @@ Route::resource('/user', UserController::class);
 Route::get('/allevents', function(){
     return view('all-events');
 })->name('allevents');
+
+Route::get('show', function(){
+    return view('event.show');
+});

@@ -62,9 +62,9 @@
     {{-- End filter --}}
     {{-- Start event list --}}
         <div class="m-10">
-            <div class="flex flex-col space-y-5">
+            <div class="flex flex-col space-y-10">
                 @for ($j=0; $j<15; $j++)
-                    <div class="flex flex-row space-x-5 items-stretch">
+                    <div class="flex flex-row space-x-10 items-stretch">
                         @for ($i=0; $i<3; $i++)
                             <div class="flex flex-row shadow-md rounded-md">
                                 <div class="w-1/3 h-full p-3 bg-center bg-cover rounded-tl-md rounded-bl-md" 
