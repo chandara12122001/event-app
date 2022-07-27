@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\Image;
+use App\Models\Location;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File; 
 
@@ -26,7 +27,9 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('event.create');
+        $locations = Location::all();
+        // dd($location);
+        return view('event.create', compact('locations'));
     }
 
     /**
@@ -43,7 +46,8 @@ class EventController extends Controller
             'event_date'=>'required',
             'description'=>'required',
             'price'=>'required',
-            'no_of_seats'=>'required'
+            'no_of_seats'=>'required',
+            'location'=>'required'
         ]);
         $event = new Event([
             'title'=>$request->title,
@@ -51,6 +55,8 @@ class EventController extends Controller
             'price'=>$request->price,
             'no_of_seats'=>$request->no_of_seats,
             'user_id'=>auth()->user()->id,
+            'location_id'=>$request->location,
+            'event_date'=>$request->event_date
         ]);
         $event->save();
         if($files = $request->file('files')){
@@ -79,7 +85,7 @@ class EventController extends Controller
     {
         //
         $event = Event::findOrFail($id);
-        // dd($event->user->name);
+        // dd($event);
         return view('event.show', compact('event'));
     }
 

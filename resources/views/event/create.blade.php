@@ -22,9 +22,11 @@
                 <input type="number" placeholder="price" name="price">
                 <input type="number" placeholder="no_of_seats" name="no_of_seats">
                 <input type="date" name="event_date">
-            </div>
-            <div>
-                <label for="">Location</label>
+                <select name="location" id="">
+                    @foreach ($locations as $location)
+                        <option value="{{$location->id}}">{{$location->name}}</option>
+                    @endforeach
+                </select>
             </div>
             <button type="submit" class="btn btn-primary" style="margin-top:10px">Submit</button>
 

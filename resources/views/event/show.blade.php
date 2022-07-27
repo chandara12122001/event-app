@@ -50,15 +50,15 @@ $images = explode('|', $event->images)
     <div class="w-3/4 flex justify-between mx-auto border-2 p-8 mt-8 border-orange-500">
         <div class="text-2xl">
             <i class="fa-solid fa-location-dot icon"></i>
-            <p class="inline ml-4">Raffle hotel Cambodia</p>
+            <p class="inline ml-4">{{$event->location->name}}</p>
         </div>
         <div class="text-2xl">
             <i class="fa-solid fa-calendar icon"></i>
-            <p class="inline ml-4">22-May-2022</p>
+            <p class="inline ml-4">{{$event->event_date}}</p>
         </div>
         <div class="text-2xl">
             <i class="fa-solid fa-ticket icon"></i>
-            <p class="inline ml-4">$5 / Person</p>
+            <p class="inline ml-4">${{$event->price}}/ Person</p>
         </div>
     </div>
 
@@ -66,10 +66,7 @@ $images = explode('|', $event->images)
     <div class="container mx-auto mt-8">
         <div class="">
             <h5 class="font-bold text-4xl">Description</h5>
-            <p class="mt-4 px-8">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia possimus labore nisi
-                inventore fuga
-                consequuntur error minima assumenda illum incidunt, provident sapiente commodi dolorum numquam quae
-                atque perferendis praesentium vero!</p>
+            <p class="mt-4 px-8">{{$event->description}}</p>
         </div>
         {{-- map --}}
         <div class="flex w-full h-screen mt-8">
