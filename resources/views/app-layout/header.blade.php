@@ -21,7 +21,7 @@
                         <a href="{{route('allevents')}}">all events</a>
                     </div>
                     <div class="px-3 py-5 link">
-                        <a href="event/create">post event</a>
+                        <a href="/event/new">post event</a>
                     </div>
                     <div class="px-3 py-5 link">
                         <a href="/">about us</a>

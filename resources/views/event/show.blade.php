@@ -1,53 +1,62 @@
-{{-- header --}}
-@extends('../app-layout.app')
-
-@section('css')
-<link rel="stylesheet" href="{{asset('css/show.css')}}">
-@endsection
-
+@extends('app-layout.app')
 @section('content')
-@php
-$images = explode('|', $event->images)
-@endphp
-<section class="w-full mx-auto">
-    {{-- hero container --}}
-    <div class="w-full relative mx-auto">
-        {{-- z-index -1 --}}
-        @foreach ($images as $item)
-        <img src="{{asset($item)}}" alt="">
-        @endforeach
-        {{-- <img class="w-full h-screen z-0"
-            src="https://images.pexels.com/photos/1157557/pexels-photo-1157557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            alt=""> --}}
-        <div class="text-white absolute top-3/4 left-1/4 pr-4">
-            <h1 class="text-4xl">event.title</h1>
-            <p class="text-lg w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, eos fugiat cumque
-                aliquam hic expedita quasi nemo repellendus magnam voluptatem laborum provident vel impedit quas commodi
-                ullam architecto odit nisi!</p>
+{{-- Start event feature --}}
+    <div class="mb-10">
+       <div style="background-image: url(http://www.un.org/development/desa/disabilities/wp-content/uploads/sites/15/2019/06/48043813818_beb22ab25e_k.jpg)"
+       class="bg-cover bg-center pt-1/6">
+        <div class="bg-gradient-to-t from-gray-900 to-transparent w-full h-full">
+            <div class="px-36 py-10 flex flex-col space-y-5">
+                <div class="text-3xl text-white font-bold">
+                    <h1>{{$event->title}}</h1>
+                </div>
+                <div class="text-white">
+                    <p>{{$event->description}}</p>
+                </div>
+            </div>
         </div>
+       </div>
     </div>
-    {{-- offers section --}}
-    <div class="flex sm:w-3/4 lg:w-1/2 mx-auto justify-between mt-8">
-        <div class="text-2xl text-center">
-            <i class="fa-solid fa-wifi icon text-5xl"></i>
-            <p class="">Wifi Access</p>
-        </div>
-        <div class="text-2xl text-center">
-            <i class="fa-solid fa-mug-hot icon  text-5xl"></i>
-            <p>Refreshment</p>
-        </div>
-        <div class="text-2xl text-center">
-            <i class="fa-solid fa-restroom icon text-5xl"></i>
-            <p>Restroom</p>
-        </div>
-        <div class="text-2xl text-center">
-            <i class="fa-solid fa-book icon text-5xl"></i>
-            <p>Materials</p>
+{{-- End event feature --}}
+{{-- Start facilities --}}
+    <div class="m-10 px-56">
+        <div class="flex flex-row space-x-28 items-center justify-center text-xl">
+            <div class="flex flex-col space-y-2 items-center justify-center">
+                <div class="text-orange-400 text-2xl">
+                    <i class="fa-solid fa-wifi"></i>
+                </div>
+                <div>
+                    <p>WiFi Access</p>
+                </div>
+            </div>
+            <div class="flex flex-col space-y-2 items-center justify-center">
+                <div class="text-orange-400 text-2xl">
+                    <i class="fa-solid fa-mug-hot"></i>
+                </div>
+                <div>
+                    <p>Refreshment</p>
+                </div>
+            </div>
+            <div class="flex flex-col space-y-2 items-center justify-center">
+                <div class="text-orange-400 text-2xl">
+                    <i class="fa-solid fa-restroom"></i>
+                </div>
+                <div>
+                    <p>Restroom</p>
+                </div>
+            </div>
+            <div class="flex flex-col space-y-2 items-center justify-center">
+                <div class="text-orange-400 text-2xl">
+                    <i class="fa-solid fa-book"></i>`
+                </div>
+                <div>
+                    <p>Support Document</p>
+                </div>
+            </div>
         </div>
     </div>
     {{-- info-header section --}}
     {{-- need border1px color orange --}}
-    <div class="w-3/4 flex justify-between mx-auto border-2 p-8 mt-8 border-orange-500">
+    {{-- <div class="w-3/4 flex justify-between mx-auto border-2 p-8 mt-8 border-orange-500">
         <div class="text-2xl">
             <i class="fa-solid fa-location-dot icon"></i>
             <p class="inline ml-4">{{$event->location->name}}</p>
@@ -60,71 +69,146 @@ $images = explode('|', $event->images)
             <i class="fa-solid fa-ticket icon"></i>
             <p class="inline ml-4">${{$event->price}}/ Person</p>
         </div>
-    </div>
+    </div> --}}
 
     {{-- main-info section --}}
     <div class="container mx-auto mt-8">
         <div class="">
             <h5 class="font-bold text-4xl">Description</h5>
             <p class="mt-4 px-8">{{$event->description}}</p>
+{{-- End facilities --}}
+{{-- Start important info --}}
+    <div class="m-10 px-56">
+        <div class="flex flex-row space-x-28 border border-orange-400 rounded-md p-10 items-center justify-center">
+            <div class="flex flex-row space-x-5 text-orange-400 items-center justify-center text-xl">
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="text-gray-900">
+                    <p>{{$event->location->name}}</p>
+                </div>
+            </div>
+            <div class="flex flex-row space-x-5 text-orange-400 items-center justify-center text-xl">
+                <div>
+                    <i class="fa-solid fa-calendar-day"></i>
+                </div>
+                <div class="text-gray-900">
+                    <p>{{$event->event_date}}</p>
+                </div>
+            </div>
+            <div class="flex flex-row space-x-5 text-orange-400 items-center justify-center text-xl">
+                <div>
+                    <i class="fa-solid fa-ticket"></i>
+                </div>
+                <div class="text-gray-900">
+                    <p>${{$event->price}} / person</p>
+                </div>
+            </div>
         </div>
-        {{-- map --}}
-        <div class="flex w-full h-screen mt-8">
+    </div>
+{{-- End important info --}}
+{{-- Start description --}}
+    <div class="m-10 px-56">
+        <div class="flex flex-col space-y-6">
+            <div class="text-xl text-gray-800 font-bold">
+                <p>Description</p>
+            </div>
+            <div class="w-full text-justify">
+                <p>{{$event->description}}</p>
+            </div>
+        </div>
+    </div>
+{{-- End description --}}
+{{-- Start detail info --}}
+    <div class="m-10 px-56">
+        <div class="flex flex-row space-x-10">
             <div class="w-1/2">
-                <div class="w-full text-center py-4 btn-third">
-                    <a class="w-full text-center py-4 text-white font-bold text-lg hover:text-pink-600"> View on Map</a>
+                <div class="flex flex-col space-y-3">
+                    <div class="w-full rounded-md text-center p-2 bg-red-400 text-white">
+                        <div class="flex flex-row space-x-3 items-center justify-center text-lg">
+                            <div>
+                                <i class="fa-solid fa-map-location-dot"></i>
+                            </div>
+                            <div>
+                                <p>View on map</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full rounded-md shadow-md">
+                        <img src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/191:100/w_1280,c_limit/GoogleMapTA.jpg" alt="">
+                    </div>
                 </div>
             </div>
-            {{-- --}}
-            <div class="w-1/2 lg:h-full ml-4">
-                {{-- oraganizer --}}
-                <div class="relative w-full h-1/4" style="border: 3px solid #0BF09ED1">
-                    <div class="absolute right-0" style="background-color: #0BF09ED1">
-                        <p class="px-8 py-2 font-light">Organizer</p>
+            <div class="w-1/2">
+                <div class="flex flex-col space-y-5">
+                    <div class="flex flex-col border border-green-400 rounded-md w-full h-1/2">
+                        <div class="flex flex-row space-x-3 p-3 w-full items-center">
+                            <div class="text-green-400">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <div>
+                                {{$event->user->name}}
+                            </div>
+                            <div class=" flex-grow flex flex-row justify-end text-white relative right-0">
+                                <div class=" bg-green-400 rounded-md p-2">
+                                    <p>Organizer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-row space-x-3 p-3">
+                            <div class="text-green-400">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                {{$event->user->phone_number}}
+                            </div>
+                        </div>
+                        <div class="flex flex-row space-x-3 p-3">
+                            <div class="text-green-400">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                {{$event->user->email}}
+                            </div>
+                        </div> 
                     </div>
-                    <div class="text-2xl px-6 py-4">
-                        <i class="fa-solid fa-user icon-secondary"></i>
-                        <p class="inline ml-4 font-light">{{$event->user->name}}</p>
+                    <div class="flex flex-col rounded-md w-full h-1/2">
+                        <div class="flex flex-row space-x-5 p-3">
+                            <div class="text-red-400">
+                                <i class="fa-solid fa-calendar-check"></i>
+                            </div>
+                            <div>
+                                <p>{{$event->going}} people is going</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-row space-x-5 p-3">
+                            <div class="text-red-400">
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <div>
+                                <p>{{$event->interested}} is interested</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-row space-x-5 p-3">
+                            <div class="text-red-400">
+                                <i class="fa-solid fa-chair"></i>
+                            </div>
+                            <div>
+                                <p>{{$event->no_of_seats}} seats are available  </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="text-2xl px-6 py-4">
-                        <i class="fa-solid fa-phone icon-secondary"></i>
-                        <p class="inline ml-4 font-light">{{$event->user->phone_number}}</p>
-                    </div>
-                    <div class="text-2xl px-6 py-4">
-                        <i class="fa-solid fa-envelope icon-secondary"></i>
-                        <p class="inline ml-4 font-light">{{$event->user->email}}</p>
-                    </div>
-                </div>
-                {{-- event info --}}
-                <div class="mt-4">
-                    <div class="text-xl px-6 py-4">
-                        <i class="fa-solid fa-calendar-check color-third"></i>
-                        <p class="inline ml-4 font-light">{{$event->going}} are going to the event.</p>
-                    </div>
-                    <div class="text-xl px-6 py-4">
-                        <i class="fa-solid fa-star color-third"></i>
-                        <p class="inline ml-4 font-light">{{$event->interested}} people are interested</p>
-                    </div>
-                    <div class="text-xl px-6 py-4">
-                        <i class="fa-solid fa-chair color-third"></i>
-                        <p class="inline ml-4 font-light">{{$event->no_of_seats}} seats are available</p>
-                    </div>
-                    <div class="w-full text-center">
-                        <button class="w-1/3 px-6 py-2 btn-second text-white">Interested</button>
-                        <button class="w-1/3 px-6 py-2 btn-third text-white">Going</button>
+                    <div class="flex flex-row">
+                        <div class="w-1/3 p-2 text-center text-white rounded-md bg-orange-400 rounded-tr-none rounded-br-none">
+                            Interested
+                        </div>
+                        <div class="w-2/3 p-2 text-center text-white rounded-md bg-red-400 rounded-tl-none rounded-bl-none">
+                            Going
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    {{-- related events --}}
-    <div>
-        {{-- randomly display events --}}
-    </div>
-
-
-</section>
+{{-- End detail info --}}
 @endsection
-
-{{-- footer --}}

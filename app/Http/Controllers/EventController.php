@@ -41,6 +41,7 @@ class EventController extends Controller
     public function store(Request $request)
     {
         // dd(auth()->user());
+        // dd($request->all());
         $this->validate($request, [
             'title'=> 'required',
             'event_date'=>'required',
@@ -49,6 +50,16 @@ class EventController extends Controller
             'no_of_seats'=>'required',
             'location'=>'required'
         ]);
+        if($request->new_location){
+            $location = new Location(
+                [
+                    'name'=>$request->new_location
+                ]
+            );
+            $location->save();
+            $request->location = $location->id;
+            // dd($request->location);
+        }
         $event = new Event([
             'title'=>$request->title,
             'description'=>$request->description,
