@@ -1,4 +1,4 @@
-@extends('app-layout.app')
+{{-- @extends('app-layout.app')
 
 @section('content')
 Register
@@ -71,4 +71,52 @@ Register
         </div>
     </form>
 </div>
+@endsection --}}
+
+@extends('app-layout.app')
+@section('content')
+    <div class="h-screen w-screen py-5 px-36">
+        <div class="flex flex-row space-x-5 items-center justify-center h-full w-full">
+            <div class="w-1/2">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" alt="">
+            </div>
+            <div class="w-1/2 flex flex-col space-y-5">
+                <div class="text-gray-700 text-5xl">
+                    <p>Register</p>
+                </div>
+                <div class="w-1/2">
+                    <hr>
+                </div>
+                <div>
+                    <form action="">
+                        <div class="flex flex-col space-y-3">
+                            <div class="border rounded-md p-3 bg-white w-1/2">
+                                <input type="text" class=" outline-none w-full" placeholder="Fullname" name="name">
+                            </div>
+                            <div class="border rounded-md p-3 bg-white w-1/2">
+                                <input type="text" class=" outline-none w-full" placeholder="usernamename" name="Username">
+                            </div>
+                            <div class="border rounded-md p-3 bg-white w-1/2">
+                                <input type="text" class=" outline-none w-full" placeholder="Phone number" name="phone_number">
+                            </div>
+                            <div class="border rounded-md p-3 bg-white w-1/2">
+                                <input type="email" class=" outline-none w-full" placeholder="Email" name="email">
+                            </div>
+                            <div class="border rounded-md p-3 bg-white w-1/2">
+                                <input type="password" class=" outline-none w-full" placeholder="Password" name="password">
+                            </div>
+                            <div class="border rounded-md p-3 bg-white w-1/2">
+                                <input type="password" class=" outline-none w-full" placeholder="Confirm password" name="password_confirmation">
+                            </div>
+                            <div>
+                                <button class="w-1/2 border-none bg-blue-600 text-white p-3 rounded-md">
+                                    Register
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
