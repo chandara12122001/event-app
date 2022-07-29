@@ -36,7 +36,7 @@ class LocationController extends Controller
     public function store(Request $request)
     {
         //
-        dd('location ok');
+        // dd('location ok');
         $this->validate(
             $request,
             [

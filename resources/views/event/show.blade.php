@@ -7,10 +7,10 @@
         <div class="bg-gradient-to-t from-gray-900 to-transparent w-full h-full">
             <div class="px-36 py-10 flex flex-col space-y-5">
                 <div class="text-3xl text-white font-bold">
-                    <h1>Impact of Big Data Development in Cambodia</h1>
+                    <h1>{{$event->title}}</h1>
                 </div>
                 <div class="text-white">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi adipisci quaerat tempora ipsa voluptates sapiente ea ipsum quas modi earum. Nostrum iusto alias cupiditate nobis natus excepturi culpa ducimus, ex, voluptatem sunt unde optio, aperiam fugiat sed aut! Nesciunt magnam sunt hic sed voluptatum aperiam culpa veniam delectus, fugiat harum reprehenderit, commodi at ullam neque nisi odio totam possimus! Amet ducimus ipsum sunt, sapiente libero eos minus porro provident impedit, quae ratione iusto reiciendis, itaque accusamus ut quibusdam sint rerum. Fugiat, ab eaque est eos quibusdam dolor illum voluptatum repellendus nulla fugit doloremque consequuntur laborum id. Quisquam officiis reiciendis aperiam!</p>
+                    <p>{{$event->description}}</p>
                 </div>
             </div>
         </div>
@@ -54,6 +54,28 @@
             </div>
         </div>
     </div>
+    {{-- info-header section --}}
+    {{-- need border1px color orange --}}
+    {{-- <div class="w-3/4 flex justify-between mx-auto border-2 p-8 mt-8 border-orange-500">
+        <div class="text-2xl">
+            <i class="fa-solid fa-location-dot icon"></i>
+            <p class="inline ml-4">{{$event->location->name}}</p>
+        </div>
+        <div class="text-2xl">
+            <i class="fa-solid fa-calendar icon"></i>
+            <p class="inline ml-4">{{$event->event_date}}</p>
+        </div>
+        <div class="text-2xl">
+            <i class="fa-solid fa-ticket icon"></i>
+            <p class="inline ml-4">${{$event->price}}/ Person</p>
+        </div>
+    </div> --}}
+
+    {{-- main-info section --}}
+    <div class="container mx-auto mt-8">
+        <div class="">
+            <h5 class="font-bold text-4xl">Description</h5>
+            <p class="mt-4 px-8">{{$event->description}}</p>
 {{-- End facilities --}}
 {{-- Start important info --}}
     <div class="m-10 px-56">
@@ -63,7 +85,7 @@
                     <i class="fa-solid fa-location-dot"></i>
                 </div>
                 <div class="text-gray-900">
-                    <p>Raffel Hotel Cambodia</p>
+                    <p>{{$event->location->name}}</p>
                 </div>
             </div>
             <div class="flex flex-row space-x-5 text-orange-400 items-center justify-center text-xl">
@@ -71,7 +93,7 @@
                     <i class="fa-solid fa-calendar-day"></i>
                 </div>
                 <div class="text-gray-900">
-                    <p>25 July 2022</p>
+                    <p>{{$event->event_date}}</p>
                 </div>
             </div>
             <div class="flex flex-row space-x-5 text-orange-400 items-center justify-center text-xl">
@@ -79,7 +101,7 @@
                     <i class="fa-solid fa-ticket"></i>
                 </div>
                 <div class="text-gray-900">
-                    <p>$5 / person</p>
+                    <p>${{$event->price}} / person</p>
                 </div>
             </div>
         </div>
@@ -92,7 +114,7 @@
                 <p>Description</p>
             </div>
             <div class="w-full text-justify">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam sapiente voluptate expedita doloremque eveniet hic, voluptatibus quam cum repellat facilis assumenda repellendus. Quas inventore vero atque, velit delectus earum ipsum quibusdam ratione, dolorum quasi sapiente id quis, dicta numquam iste praesentium? Corrupti rerum debitis similique eum saepe, aspernatur incidunt explicabo nulla aliquid qui repellat animi suscipit, unde mollitia odio ipsum nisi itaque, perspiciatis vitae nobis labore aliquam illo sequi. Necessitatibus, quia. Odit sapiente modi doloremque quae optio, laudantium distinctio voluptates laborum quaerat? Corporis saepe excepturi doloribus delectus aut omnis nemo tenetur eligendi, explicabo enim distinctio dolor sit deserunt reprehenderit eveniet alias a pariatur est optio officia atque? Recusandae ipsam numquam cum sapiente debitis temporibus ad earum fugiat neque atque provident nemo, distinctio et corrupti. Natus rerum corporis, saepe cum itaque est sint quisquam officiis perferendis? Placeat magnam soluta molestiae est! Itaque perferendis, earum non quisquam est officia? Incidunt, iste id!</p>
+                <p>{{$event->description}}</p>
             </div>
         </div>
     </div>
@@ -125,7 +147,7 @@
                                 <i class="fa-solid fa-user"></i>
                             </div>
                             <div>
-                                Ray Chann Udam
+                                {{$event->user->name}}
                             </div>
                             <div class=" flex-grow flex flex-row justify-end text-white relative right-0">
                                 <div class=" bg-green-400 rounded-md p-2">
@@ -138,7 +160,7 @@
                                 <i class="fa-solid fa-phone"></i>
                             </div>
                             <div>
-                                (855)-17-701-656
+                                {{$event->user->phone_number}}
                             </div>
                         </div>
                         <div class="flex flex-row space-x-3 p-3">
@@ -146,7 +168,7 @@
                                 <i class="fa-solid fa-envelope"></i>
                             </div>
                             <div>
-                                channudamray2002.rcu@gmail.com
+                                {{$event->user->email}}
                             </div>
                         </div> 
                     </div>
@@ -156,7 +178,7 @@
                                 <i class="fa-solid fa-calendar-check"></i>
                             </div>
                             <div>
-                                <p>500 people is going</p>
+                                <p>{{$event->going}} people is going</p>
                             </div>
                         </div>
                         <div class="flex flex-row space-x-5 p-3">
@@ -164,7 +186,7 @@
                                 <i class="fa-solid fa-star"></i>
                             </div>
                             <div>
-                                <p>250 people is interested</p>
+                                <p>{{$event->interested}} is interested</p>
                             </div>
                         </div>
                         <div class="flex flex-row space-x-5 p-3">
@@ -172,7 +194,7 @@
                                 <i class="fa-solid fa-chair"></i>
                             </div>
                             <div>
-                                <p>$20 seats are available  </p>
+                                <p>{{$event->no_of_seats}} seats are available  </p>
                             </div>
                         </div>
                     </div>
