@@ -2,7 +2,7 @@
 @section('content')
 {{-- Start event feature --}}
     <div class="mb-10">
-       <div style="background-image: url(http://www.un.org/development/desa/disabilities/wp-content/uploads/sites/15/2019/06/48043813818_beb22ab25e_k.jpg)"
+       <div style="background-image: url({{asset($event->images[0]->image)}})"
        class="bg-cover bg-center pt-1/6">
         <div class="bg-gradient-to-t from-gray-900 to-transparent w-full h-full">
             <div class="px-36 py-10 flex flex-col space-y-5">

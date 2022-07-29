@@ -86,7 +86,7 @@ class EventController extends Controller
                 Image::create($request->all());
             }
         }
-        return redirect().route('/event/'.$event->id);
+        return redirect('/event/'.$event->id);
     }
 
     /**
