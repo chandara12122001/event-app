@@ -1,7 +1,9 @@
-@extends('app-layout.app')
+{{-- @extends('app-layout.app')
 
 @section('content')
-Register
+<div class="w-ful p-36 bg-gray-700 text-white text-2xl text-center">
+    Login
+</div>
 <div class="mx-auto">
     @if (session('status'))
         {{session('status')}}
@@ -39,4 +41,10 @@ Register
         </div>
     </form>
 </div>
+@endsection --}}
+
+
+@extends('app-layout.app')
+@section('content')
+
 @endsection
