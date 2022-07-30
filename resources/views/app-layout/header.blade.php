@@ -32,6 +32,9 @@
                     <div class="flex flex-row p-2 capitalize text-white bg-blue-500 rounded-md space-x-3 items-center">
                         @auth
                         <div class=" link">
+                            @if (auth()->user()->avatar)
+                            <img src="{{auth()->user()->avatar}}" alt="{{auth()->user()->name}}">
+                            @endif
                             <a href="">{{auth()->user()->username}}</a>
                         </div>
                         <div class=" link">
