@@ -60,61 +60,60 @@
         </div>
     </div>
     {{-- End filter --}}
+        
     {{-- Start event list --}}
         <div class="m-10">
             <div class="flex flex-col space-y-10">
-                @for ($j=0; $j<15; $j++)
-                    <div class="flex flex-row space-x-10 items-stretch">
-                        @for ($i=0; $i<3; $i++)
-                            <div class="flex flex-row shadow-md rounded-md">
-                                <div class="w-1/3 h-full p-3 bg-center bg-cover rounded-tl-md rounded-bl-md" 
-                                style="background-image:url('https://bevents.co/wp-content/uploads/2020/02/events.jpg')">
+                <div class=" grid grid-cols-3 gap-4">
+                    @foreach ($events as $event)
+                        <div class="flex flex-row shadow-md rounded-md">
+                            <div class="w-1/3 h-full p-3 bg-center bg-cover rounded-tl-md rounded-bl-md" 
+                            style="background-image:url({{asset($event->images[0]->image)}})">
+                            </div>
+                            <div class="flex flex-col space-y-3 w-2/3 p-3">
+                                <div class="text-xl font-bold">
+                                    <h1>{{$event->title}}</h1>
                                 </div>
-                                <div class="flex flex-col space-y-3 w-2/3 p-3">
-                                    <div class="text-xl font-bold">
-                                        <h1>Cambodia Digital 4.0</h1>
-                                    </div>
-                                    <div>
-                                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam blanditiis similique deserunt deleniti aperiam accusantium harum cumque nam delectus cupiditate laudantium quia dolor itaque possimus, rerum a odio consequuntur! Obcaecati!</p>
-                                    </div>
-                                    <div>
-                                        <div class="flex flex-row space-x-4 items-center">
-                                            <div class="bg-green-500 rounded-md py-1 px-2 text-white">
-                                                <p>Free</p>
+                                <div>
+                                    <p>{{$event->description}}</p>
+                                </div>
+                                <div>
+                                    <div class="flex flex-row space-x-4 items-center">
+                                        <div class="bg-green-500 rounded-md py-1 px-2 text-white">
+                                            <p>$ {{$event->price}}</p>
+                                        </div>
+                                        <div class="flex flex-row space-x-2 items-center">
+                                            <div>
+                                                <i class="fa-solid fa-location-dot"></i>
                                             </div>
-                                            <div class="flex flex-row space-x-2 items-center">
-                                                <div>
-                                                    <i class="fa-solid fa-location-dot"></i>
-                                                </div>
-                                                <div>
-                                                    <p>Phnom Penh</p>
-                                                </div>
+                                            <div>
+                                                <p>{{$event->location->name}}</p>
                                             </div>
-                                            <div class="flex flex-row space-x-2 items-center">
-                                                <div>
-                                                    <i class="fa-solid fa-calendar-day"></i>
-                                                </div>
-                                                <div>
-                                                    <p>12 Dec 2022</p>
-                                                </div>
+                                        </div>
+                                        <div class="flex flex-row space-x-2 items-center">
+                                            <div>
+                                                <i class="fa-solid fa-calendar-day"></i>
+                                            </div>
+                                            <div>
+                                                <p>{{$event->event_date}}</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div>
-                                        <div class="flex flex-row w-full items-center rounded-md">
-                                            <div class="w-2/3 text-center p-2 bg-red-500 text-white rounded-tl-md rounded-bl-md">
-                                                <p>Going</p>
-                                            </div>
-                                            <div class="text-center p-2 bg-orange-400 text-white w-1/3 rounded-tr-md rounded-br-md">
-                                                <p>Learn more</p>
-                                            </div>
+                                </div>
+                                <div>
+                                    <div class="flex flex-row w-full items-center rounded-md">
+                                        <div class="w-2/3 text-center p-2 bg-red-500 text-white rounded-tl-md rounded-bl-md">
+                                            <p>Going</p>
+                                        </div>
+                                        <div class="text-center p-2 bg-orange-400 text-white w-1/3 rounded-tr-md rounded-br-md">
+                                            <a href="/event/{{$event->id}}">Learn more</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        @endfor
-                    </div>
-                @endfor
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     {{-- End event list --}}
