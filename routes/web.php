@@ -41,7 +41,20 @@ Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
+
+//google login
+Route::get('/login/google', [LoginController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('/login/google/callback', [LoginController::class, 'handleGoogleCallback']);
+
+
+//facebook login
+Route::get('/login/facebook', [LoginController::class, 'redirectToFacebook'])->name('login.facebook');
+Route::get('/login/facebook/callback', [LoginController::class, 'handleFacebookCallback']);
+
 Route::post('/logout', [LogoutController::class, 'index'])->name('logout');
+
+
+
 Route::resource('/event', EventController::class);
 Route::resource('/location', LocationController::class);
 Route::resource('/user', UserController::class);
