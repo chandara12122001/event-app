@@ -12,7 +12,7 @@ class Location extends Model
     protected $fillable = [
         'name',
         'link',
-        'long',
+        'lng',
         'lat'
     ];
     public function events(){

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -81,4 +83,53 @@ class UserController extends Controller
     {
         //
     }
+
+    public function showCreateProfile()
+    {
+        $user = auth()->user();
+        return view('user.profile.createProfile', compact('user'));
+    }
+    public function showEditProfile()
+    {
+        return view('user.profile.editProfile');
+    }
+
+
+    public function createProfile(Request $request)
+    {
+        // dd("ok create profile");
+        dd($request->file('file'));
+        $file = $request->file('file');
+        $image_name = md5(rand(1000, 10000));
+        $ext = strtolower($file->getClientOriginalExtension());
+        $image_full_name =  $image_name . '.' . $ext;
+        $upload_path = 'images/';
+        $image_url = $upload_path . $image_full_name;
+        $file->move($upload_path, $image_full_name);
+        // dd(auth()->user()->id);
+        Image::create(
+            [
+                'user_id' => auth()->user()->id,
+                'image' => $image_url
+            ]
+        );
+        return redirect('/')->with('success', 'Successfully upload profile!');
+    }
+    public function editProfile(Request $request)
+    {
+        $file = $request->file('file');
+        $image_name = md5(rand(1000, 10000));
+        $ext = strtolower($file->getClientOriginalExtension());
+        $image_full_name =  $image_name . '.' . $ext;
+        $upload_path = 'images/';
+        $image_url = $upload_path . $image_full_name;
+        $file->move($upload_path, $image_full_name);
+        // dd(auth()->user()->id);
+        Image::create(
+            [
+                'user_id' => auth()->user()->id,
+                'image' => $image_url
+            ]
+        );
+        return redirect('/')->with('success', 'Successfully upload profile!');    }
 }

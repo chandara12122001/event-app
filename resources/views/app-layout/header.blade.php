@@ -35,7 +35,10 @@
                             @if (auth()->user()->avatar)
                             <img src="{{auth()->user()->avatar}}" alt="{{auth()->user()->name}}">
                             @endif
-                            <a href="">{{auth()->user()->username}}</a>
+                            @if(auth()->user()->profile->isNotEmpty())
+                            <img src="{{Storage::url(auth()->user()->profile->last()->image)}}" style="width: 50px;height:50px" alt="">
+                            <a href="">{{auth()->user()->name}}</a>
+                            @endif
                         </div>
                         <div class=" link">
                             <form action="{{route('logout')}}" method="POST">

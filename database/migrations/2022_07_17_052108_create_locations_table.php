@@ -17,8 +17,8 @@ class CreateLocationsTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('link')->nullable();
-            $table->string('long')->nullable();
-            $table->string('lat')->nullable();
+            $table->double('lng')->nullable();
+            $table->double('lat')->nullable();
             $table->timestamps();
         });
     }

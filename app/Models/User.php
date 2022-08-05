@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements CanResetPassword
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -22,7 +23,9 @@ class User extends Authenticatable
         'email',
         'phone_number',
         'password',
-        'username'
+        'username',
+        'email_verification_code',
+        'event_id'
     ];
 
     /**
@@ -44,7 +47,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function events(){
-        return $this->hasMany(Event::class);
+    // public function events(){
+    //     return $this->hasMany(Event::class);
+    // }
+
+    public function profile(){
+        return $this->hasMany(Image::class);
     }
 }

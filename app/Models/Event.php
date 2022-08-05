@@ -18,10 +18,15 @@ class Event extends Model
         'location_id',
         'title',
         'going',
+        'interested'
     ];
 
-    public function user(){
-        return $this->belongsTo(User::class);
+    public function users(){
+        return $this->belongsToMany(User::class, 'event_user', 'event_id', 'user_id')->withTimestamps()->withPivot(['isOrganizer']);
+    }
+
+    public function organizer(){
+        return $this->belongsToMany(User::class, 'event_user', 'event_id', 'user_id')->withTimestamps()->withPivot(['isOrganizer'])->wherePivot('isOrganizer', true);
     }
 
     public function location(){
