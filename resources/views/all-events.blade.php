@@ -4,7 +4,7 @@
     <div class="m-10">
         <div class="flex flex-row space-x-10 items-center justify-center">
             <form>
-                <div class="flex flex-row space-x-10 items-center justify-center">
+                <div class="flex md:flex-row md:space-x-10 md:space-y-0 items-center justify-center flex-col space-y-10">
                     <div class="border border-gray-700 rounded-md p-3 bg-white">
                         <div class="flex justify-center space-x-10">
                             <div>
@@ -64,7 +64,7 @@
     {{-- Start event list --}}
         <div class="m-10">
             <div class="flex flex-col space-y-10">
-                <div class=" grid grid-cols-3 gap-4">
+                <div class=" grid md:grid-cols-3 gap-4 grid-cols-1">
                     @foreach ($events as $event)
                         <div class="flex flex-row shadow-md rounded-md">
                             <div class="w-1/3 h-full p-3 bg-center bg-cover rounded-tl-md rounded-bl-md" 
@@ -102,7 +102,7 @@
                                 </div>
                                 <div>
                                     <div class="flex flex-row w-full items-center rounded-md">
-                                        <div class="w-2/3 text-center p-2 bg-red-500 text-white rounded-tl-md rounded-bl-md">
+                                        <div class="w-2/3 text-center p-2 bg-red-500 text-white rounded-tl-md rounded-bl-md cursor-pointer">
                                             <p>Going</p>
                                         </div>
                                         <div class="text-center p-2 bg-orange-400 text-white w-1/3 rounded-tr-md rounded-br-md">

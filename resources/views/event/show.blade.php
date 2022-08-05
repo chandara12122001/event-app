@@ -5,9 +5,9 @@
        <div style="background-image: url({{asset($event->images[0]->image)}})"
        class="bg-cover bg-center pt-1/6">
         <div class="bg-gradient-to-t from-gray-900 to-transparent w-full h-full">
-            <div class="px-36 py-10 flex flex-col space-y-5">
+            <div class="md:px-36 px-20 py-10 flex flex-col space-y-5">
                 <div class="text-3xl text-white font-bold">
-                    <h1>{{$event->title}}</h1>
+                    <h1>{{$event->going}}</h1>
                 </div>
                 <div class="text-white">
                     <p>{{$event->description}}</p>
@@ -18,8 +18,8 @@
     </div>
 {{-- End event feature --}}
 {{-- Start facilities --}}
-    <div class="m-10 px-56">
-        <div class="flex flex-row space-x-28 items-center justify-center text-xl">
+    <div class="m-10 md:px-56">
+        <div class="flex md:flex-row md:space-x-28 md:space-y-0 items-center justify-center flex-col space-y-5">
             <div class="flex flex-col space-y-2 items-center justify-center">
                 <div class="text-orange-400 text-2xl">
                     <i class="fa-solid fa-wifi"></i>
@@ -72,15 +72,18 @@
     </div> --}}
 
     {{-- main-info section --}}
-    <div class="container mx-auto mt-8">
+    {{-- <div class="container mx-auto mt-8">
         <div class="">
             <h5 class="font-bold text-4xl">Description</h5>
-            <p class="mt-4 px-8">{{$event->description}}</p>
+            <p class="mt-4 px-8">{{$event->description}}</p> --}}
 {{-- End facilities --}}
 {{-- Start important info --}}
-    <div class="m-10 px-56">
-        <div class="flex flex-row space-x-28 border border-orange-400 rounded-md p-10 items-center justify-center">
+    <div class="m-10 md:px-56 px-20">
+        <div class="flex md:flex-row md:space-x-28  md:space-y-0 flex-col space-y-10 border border-orange-400 rounded-md p-10 items-center justify-center">
             <div class="flex flex-row space-x-5 text-orange-400 items-center justify-center text-xl">
+                <div hidden id="eventID">
+                    {{$event->id}}
+                </div>
                 <div>
                     <i class="fa-solid fa-location-dot"></i>
                 </div>
@@ -108,7 +111,7 @@
     </div>
 {{-- End important info --}}
 {{-- Start description --}}
-    <div class="m-10 px-56">
+    <div class="m-10 md:px-56 px-20">
         <div class="flex flex-col space-y-6">
             <div class="text-xl text-gray-800 font-bold">
                 <p>Description</p>
@@ -120,9 +123,9 @@
     </div>
 {{-- End description --}}
 {{-- Start detail info --}}
-    <div class="m-10 px-56">
-        <div class="flex flex-row space-x-10">
-            <div class="w-1/2">
+    <div class="m-10 md:px-56 px-20">
+        <div class="flex md:flex-row md:space-x-10 md:space-y-0 flex-col space-y-10">
+            <div class="md:w-1/2 w-full">
                 <div class="flex flex-col space-y-3">
                     <div class="w-full rounded-md text-center p-2 bg-red-400 text-white">
                         <div class="flex flex-row space-x-3 items-center justify-center text-lg">
@@ -139,7 +142,7 @@
                     </div>
                 </div>
             </div>
-            <div class="w-1/2">
+            <div class="md:w-1/2 w-full">
                 <div class="flex flex-col space-y-5">
                     <div class="flex flex-col border border-green-400 rounded-md w-full h-1/2">
                         <div class="flex flex-row space-x-3 p-3 w-full items-center">
@@ -186,7 +189,7 @@
                                 <i class="fa-solid fa-star"></i>
                             </div>
                             <div>
-                                <p>{{$event->interested}} is interested</p>
+                                <p id="interestedNum">{{$event->interested}} is interested</p>
                             </div>
                         </div>
                         <div class="flex flex-row space-x-5 p-3">
@@ -200,7 +203,9 @@
                     </div>
                     <div class="flex flex-row">
                         <div class="w-1/3 p-2 text-center text-white rounded-md bg-orange-400 rounded-tr-none rounded-br-none">
-                            Interested
+                            <a onclick="interestedClick()">
+                                Interested
+                            </a>
                         </div>
                         <div class="w-2/3 p-2 text-center text-white rounded-md bg-red-400 rounded-tl-none rounded-bl-none">
                             Going
