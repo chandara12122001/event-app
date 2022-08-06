@@ -2,7 +2,7 @@
 @section('content')
     <div class=" m-10 sm:mx-36 mx-10">
         <div class="border rounded-lg bg-cover bg-center sm:w-full sm:h-60 w-full h-32 p-5 flex flex-row space-x-3 items-center justify-center" style="background-image:url('https://images.hdqwalls.com/wallpapers/sunset-beautiful-painting.jpg')">
-            <div class=" bg-red-500 sm:w-40 sm:h-40 w-24 h-24 rounded-full bg-cover bg-top" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZmVtYWxlJTIwcG9ydHJhaXR8ZW58MHx8MHx8&w=1000&q=80')">
+            <div id="profile" class=" bg-red-500 sm:w-40 sm:h-40 w-24 h-24 rounded-full bg-cover bg-top" style="background-image: url({{Storage::url(auth()->user()->profile->last()->image)}})">
             </div>
         </div>
     </div>
@@ -77,3 +77,14 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script type="text/javascript">
+        const profileClicked = document.getElementById('profile')
+        profileClicked.addEventListener("click", updateProfile)
+
+        function updateProfile(){
+            
+        }
+    </script>
+@endpush

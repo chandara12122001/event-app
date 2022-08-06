@@ -1,10 +1,11 @@
-@extends('app-layout.app') --}}
+@extends('app-layout.app')
 @section('content')
 <div>
     <div class=" bg-gray-500 text-center w-full text-white py-20 text-2xl font-bold">
         <p>Create new event</p>
     </div>
     <div>
+        @livewire('upload-profile', ['user' => auth()->user()])
         <form method="post" action="{{route('event.store')}}" enctype="multipart/form-data">
             @csrf
             <div class="p-10 flex flex-col space-y-10 items-center justify-center">
@@ -52,6 +53,8 @@
                         <div class="border rounded-md p-3 bg-white w-1/2">
                             <input type="text" name="new_location" placeholder="New location"
                                 class=" outline-none w-full">
+                            <input type="text" name="lng" placeholder="longtitude" class=" outline-none w-full">
+                            <input type="text" name="lat" placeholder="latitude" class=" outline-none w-full">
                         </div>
                     </div>
                 </div>
@@ -66,6 +69,7 @@
                 </div>
             </div>
         </form>
+
     </div>
 </div>
 @endsection

@@ -10,15 +10,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    @livewireStyles
     @yield('css')
 </head>
 
 <body class=" bg-gray-100">
     @include('app-layout.header')
     @yield('content')
+    {{-- {{ $slot }} --}}
+
+    {{isset($slot)? $slot : null}}
+
     @include('app-layout.footer')
+    @livewireScripts
+    @stack('scripts')
+    
 </body>
 
-<script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
 
 </html>

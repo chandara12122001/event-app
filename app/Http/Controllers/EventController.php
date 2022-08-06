@@ -7,7 +7,7 @@ use App\Models\Event;
 use App\Models\Image;
 use App\Models\Location;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File; 
+use Illuminate\Support\Facades\File;
 
 class EventController extends Controller
 {
@@ -18,11 +18,13 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
+        $events = Event::with('users', 'organizer')->get();
+        // foreach($events->users as $user){
+        //     dd($user);
+        // }
         // dd($events);
-        return view('all-events', [
-            'events'=>$events
-        ]);
+        // dd($events);
+        return view('all-events', compact('events'));
     }
 
     /**
@@ -32,6 +34,7 @@ class EventController extends Controller
      */
     public function create()
     {
+        // dd(auth()->user()->latestProfile);
         $locations = Location::all();
         // dd($location);
         return view('event.create', compact('locations'));
@@ -48,47 +51,51 @@ class EventController extends Controller
         // dd(auth()->user());
         // dd($request->all());
         $this->validate($request, [
-            'title'=> 'required',
-            'event_date'=>'required',
-            'description'=>'required',
-            'price'=>'required',
-            'no_of_seats'=>'required',
-            'location'=>'required'
+            'title' => 'required',
+            'event_date' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'no_of_seats' => 'required',
+            'location' => 'required'
         ]);
-        if($request->new_location){
+        if ($request->new_location) {
             $location = new Location(
                 [
-                    'name'=>$request->new_location
+                    'name' => $request->new_location,
+                    'lng' => $request->lng,
+                    'lat' => $request->lat
                 ]
             );
+            // dd($location);
             $location->save();
             $request->location = $location->id;
             // dd($request->location);
         }
         $event = new Event([
-            'title'=>$request->title,
-            'description'=>$request->description,
-            'price'=>$request->price,
-            'no_of_seats'=>$request->no_of_seats,
-            'user_id'=>auth()->user()->id,
-            'location_id'=>$request->location,
-            'event_date'=>$request->event_date
+            'title' => $request->title,
+            'description' => $request->description,
+            'price' => $request->price,
+            'no_of_seats' => $request->no_of_seats,
+            // 'user_id'=>auth()->user()->id,
+            'location_id' => $request->location,
+            'event_date' => $request->event_date
         ]);
         $event->save();
-        if($files = $request->file('files')){
-            foreach($files as $file){
-                $image_name = md5(rand(1000,10000));
+        $event->users()->attach(auth()->user()->id, ['isOrganizer' => true]);
+        if ($files = $request->file('files')) {
+            foreach ($files as $file) {
+                $image_name = md5(rand(1000, 10000));
                 $ext = strtolower($file->getClientOriginalExtension());
-                $image_full_name =  $image_name.'.'.$ext;
+                $image_full_name =  $image_name . '.' . $ext;
                 $upload_path = 'images/';
-                $image_url = $upload_path.$image_full_name;
-                $file->move($upload_path,$image_full_name);
+                $image_url = $upload_path . $image_full_name;
+                $file->move($upload_path, $image_full_name);
                 $request['event_id'] = $event->id;
-                $request['image'] =$image_url;
+                $request['image'] = $image_url;
                 Image::create($request->all());
             }
         }
-        return redirect('/event/'.$event->id);
+        return redirect('/event/' . $event->id);
     }
 
     /**
@@ -128,22 +135,22 @@ class EventController extends Controller
     {
         $event = Event::findOrFail($id);
         $event->update([
-            'title'=>$request->title,
-            'description'=>$request->description,
-            'price'=>$request->price,
-            'no_of_seats'=>$request->no_of_seats
+            'title' => $request->title,
+            'description' => $request->description,
+            'price' => $request->price,
+            'no_of_seats' => $request->no_of_seats
         ]);
 
-        if($files = $request->file('files')){
-            foreach($files as $file){
-                $image_name = md5(rand(1000,10000));
+        if ($files = $request->file('files')) {
+            foreach ($files as $file) {
+                $image_name = md5(rand(1000, 10000));
                 $ext = strtolower($file->getClientOriginalExtension());
-                $image_full_name =  $image_name.'.'.$ext;
+                $image_full_name =  $image_name . '.' . $ext;
                 $upload_path = 'images/';
-                $image_url = $upload_path.$image_full_name;
-                $file->move($upload_path,$image_full_name);
+                $image_url = $upload_path . $image_full_name;
+                $file->move($upload_path, $image_full_name);
                 $request['event_id'] = $event->id;
-                $request['image'] =$image_url;
+                $request['image'] = $image_url;
                 Image::create($request->all());
             }
         }
@@ -162,8 +169,8 @@ class EventController extends Controller
         $event = Event::findOrFail($id);
 
         $images = Image::where('event_id', $event->id)->get();
-        foreach($images as $image){
-            if(File::exists(asset($image))){
+        foreach ($images as $image) {
+            if (File::exists(asset($image))) {
                 File::delete(asset($image));
             }
         }
