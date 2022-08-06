@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\EventInterested;
 use App\Models\Event;
 use App\Models\Image;
 use App\Models\Location;
@@ -107,7 +108,7 @@ class EventController extends Controller
     {
         //
         $event = Event::findOrFail($id);
-        // dd($event);
+        // event(new EventInterested($event));
         return view('event.show', compact('event'));
     }
 

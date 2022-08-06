@@ -10,10 +10,19 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
+<<<<<<< HEAD
+        "laravel/tinker": "^2.5",
+        "pusher/pusher-php-server": "*"
+=======
         "laravel/socialite": "^5.5",
+<<<<<<< HEAD
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.10",
         "phpmailer/phpmailer": "^6.6"
+=======
+        "laravel/tinker": "^2.5"
+>>>>>>> a323c439dc7b2a54a822601989e9e9d6dad06b03
+>>>>>>> 48c93ae948f68424beb633f5f8ada041640f3a65
     },
     "require-dev": {
         "facade/ignition": "^2.5",

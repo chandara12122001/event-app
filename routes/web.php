@@ -90,3 +90,7 @@ Route::get('show', function(){
 });
 
 Route::get('/allevents', [EventController::class, 'index'])->name('allevents');
+
+Route::get('/userprofile', function(){
+    return view('user.user');
+});
