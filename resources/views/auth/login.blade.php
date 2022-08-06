@@ -59,7 +59,8 @@
                   />
                 </div>
                 <div class="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
-                  <form>
+                  <form method="POST" action="/login">
+                    @csrf
                     <div class="w-full flex flex-row items-center justify-evenly space-x-3">
                       <div class="flex flex-row space-x-3 p-2 items-center justify-center text-white bg-red-500 rounded-md">
                         <div>
@@ -94,6 +95,11 @@
                         placeholder="Email address"
                         name="email"
                       />
+                      @error('email')
+            <div class="text-red-500 mt-2 text-sm">
+                {{$message}}
+            </div>
+            @enderror
                     </div>
           
                     <!-- Password input -->
@@ -105,6 +111,11 @@
                         placeholder="Password"
                         name="password"
                       />
+                      @error('password')
+            <div class="text-red-500 mt-2 text-sm">
+                {{$message}}
+            </div>
+            @enderror
                     </div>
           
                     <div class="flex sm:flex-row items-center justify-evenly mb-6 w-full text-sm">
@@ -123,7 +134,7 @@
           
                     <div class="text-center lg:text-left">
                       <button
-                        type="button"
+                        type="submit"
                         class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                       >
                         Login
