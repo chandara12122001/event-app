@@ -38,6 +38,7 @@ class RegisterController extends Controller
         ]);
 
         $mail = new PHPMailer(true);
+        $user = new User();
         try {
             $mail->SMTPDebug = 0;
             $mail->isSMTP();
@@ -63,14 +64,20 @@ class RegisterController extends Controller
             $mail->Subject = "Email Verification";
             $mail->Body = '<p>Your verification code is: <b style="font-size: 30px;">' . $email_verification_code . '</b></p>';
             $mail->send();
-            $user = new User([
-                'name' => $request->name,
-                'phone_number' => $request->phone_number,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-                'username' => $request->username,
-                'email_verification_code' => $email_verification_code
-            ]);
+            $user->name = $request->name;
+            $user->phone_number = $request->phone_number;
+            $user->email = $request->email;
+            $user->password = Hash::make($request->password);
+            $user->username = $request->username;
+            $user->email_verification_code = $email_verification_code;
+            // $user = new User([
+            //     'name' => $request->name,
+            //     'phone_number' => $request->phone_number,
+            //     'email' => $request->email,
+            //     'password' => Hash::make($request->password),
+            //     'username' => $request->username,
+            //     'email_verification_code' => $email_verification_code
+            // ]);
             $user->save();
         } catch (Exception $e) {
             echo "Message could not be sent, Mailer Error: {$mail->ErrorInfo}";
