@@ -9,9 +9,11 @@
                 style="background-image: url({{$photo->temporaryUrl()}})">
             </div>
             @else
+            @if (auth()->user()->profile)
             <div id="profile" class=" bg-red-500 sm:w-40 sm:h-40 w-24 h-24 rounded-full bg-cover bg-top"
                 style="background-image: url({{Storage::url(auth()->user()->profile->last()->image)}})">
             </div>
+            @endif
             @endif
             <div id="profielDropdownMenu" class="toggle">
                 <ul>

@@ -5,7 +5,7 @@
         <p>Create new event</p>
     </div>
     <div>
-        @livewire('upload-profile', ['user' => auth()->user()])
+        {{-- @livewire('upload-profile', ['user' => auth()->user()]) --}}
         <form method="post" action="{{route('event.store')}}" enctype="multipart/form-data">
             @csrf
             <div class="p-10 flex flex-col space-y-10 items-center justify-center">
