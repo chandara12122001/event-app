@@ -13,7 +13,7 @@
                     <input type="text" name="title" placeholder="Event title" class=" outline-none w-full">
                 </div>
                 <div class="border rounded-md p-3 bg-white sm:w-1/3 w-full">
-                    <input type="file" name="files[]" multiple>
+                    <input type="file" name="files[]" multiple required>
                     {{-- <input type="file" name="files[]" placeholder="Event title" class=" outline-none w-full" multiple> --}}
                 </div>
                 <textarea name="description" id="" cols="30" rows="5" placeholder="description"

@@ -18,7 +18,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::with('users', 'organizer')->get();
+        $events = Event::with('users', 'organizer','location', 'images')->get();
         // foreach($events->users as $user){
         //     dd($user);
         // }
@@ -108,6 +108,8 @@ class EventController extends Controller
     {
         //
         $event = Event::findOrFail($id);
+        // dd($event->organizer);
+
         // event(new EventInterested($event));
         return view('event.show', compact('event'));
     }
