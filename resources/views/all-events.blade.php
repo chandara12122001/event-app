@@ -79,9 +79,9 @@
             <div class=" grid md:grid-cols-3 gap-4 grid-cols-1">
                 @foreach ($events as $event)
                 <div class="flex flex-row shadow-md rounded-md">
-                    {{-- <div class="w-1/3 h-full p-3 bg-center bg-cover rounded-tl-md rounded-bl-md" --}} {{--
-                        style="background-image:url({{asset($event->images[0]->image)}})"> --}}
-                        {{-- </div> --}}
+                     <div class="w-1/3 h-full p-3 bg-center bg-cover rounded-tl-md rounded-bl-md"
+                        style="background-image:url({{asset($event->images[0]->image)}})"> 
+                    </div>
                     <div class="flex flex-col space-y-3 w-2/3 p-3">
                         <div class="text-xl font-bold">
                             <h1>{{$event->title}}</h1>
@@ -99,7 +99,7 @@
                                         <i class="fa-solid fa-location-dot"></i>
                                     </div>
                                     <div>
-                                        {{-- <p>{{$event->location->name}}</p> --}}
+                                        <p>{{$event->location->name}}</p>
                                     </div>
                                 </div>
                                 <div class="flex flex-row space-x-2 items-center">
