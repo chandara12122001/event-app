@@ -65,21 +65,10 @@
 {{-- Start event list --}}
 <div class="m-10">
     <div class="flex flex-col space-y-10">
-        <div class=" grid grid-cols-3 gap-4">
-            {{-- @foreach ($events as $event)
-            <h1>{{$event->title}}</h1>
-            @foreach($event->users as $user){
-            @if ($user->pivot->isOrganizer)
-            <h1>Organizer</h1>
-            @endif
-            <p>{{$user->name}}</p>
-            }
-            @endforeach
-            @endforeach --}}
-            <div class=" grid md:grid-cols-3 gap-4 grid-cols-1">
+        <div class=" grid sm:grid-cols-3 sm:gap-4 grid-cols-1 gap-4">
                 @foreach ($events as $event)
-                <div class="flex flex-row shadow-md rounded-md">
-                     <div class="w-1/3 h-full p-3 bg-center bg-cover rounded-tl-md rounded-bl-md"
+                <div class="flex flex-row shadow-md rounded-md w-full">
+                    <div class="w-1/3 h-full p-3 bg-center bg-cover rounded-tl-md rounded-bl-md"
                         style="background-image:url({{asset($event->images[0]->image)}})"> 
                     </div>
                     <div class="flex flex-col space-y-3 w-2/3 p-3">
@@ -90,7 +79,7 @@
                             <p>{{$event->description}}</p>
                         </div>
                         <div>
-                            <div class="flex flex-row space-x-4 items-center">
+                            <div class="flex sm:flex-row sm:space-x-4 sm:space-y-0 flex-col space-y-3 sm:items-center items-start">
                                 <div class="bg-green-500 rounded-md py-1 px-2 text-white">
                                     <p>$ {{$event->price}}</p>
                                 </div>
@@ -126,7 +115,6 @@
                     </div>
                 </div>
                 @endforeach
-            </div>
         </div>
     </div>
     {{-- End event list --}}
