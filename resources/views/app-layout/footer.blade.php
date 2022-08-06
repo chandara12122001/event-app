@@ -1,6 +1,6 @@
-<div class="w-full bg-white py-12 px-32 rounded-t-xl">
-    <div class="flex flex-row space-x-3 justify-between items-center">
-        <div class="flex flex-col space-y-3 w-1/3">
+<div class="w-full bg-white py-12 sm:px-32 px-20 rounded-t-xl">
+    <div class="flex sm:flex-row sm:space-x-3 sm:space-y-0 flex-col space-y-5 justify-between">
+        <div class="flex flex-col space-y-3 sm:w-1/3 w-full">
             <div class="w-48 px-10">
                 <a href="/">
                     <img src="{{asset('storage/logo.png')}}" alt="">
@@ -12,7 +12,7 @@
         </div>
         <div class="flex flex-col space-y-10 w-2/3">
             <div class="flex flex-row justify-end">
-                <div class="flex flex-row space-x-6 uppercase text-lg">
+                <div class="flex sm:flex-row sm:space-x-6 sm:space-y-0 flex-col space-y-5 uppercase text-lg">
                     <div>
                         <a href="/">home</a>
                     </div>
