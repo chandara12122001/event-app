@@ -14,7 +14,7 @@ class UploadProfile extends Component
 
     public function render()
     {
-        return view('livewire.upload-profile');
+        return view('livewire.upload-profile')->layout('app-layout.app');
     }
 
     public function save(){
