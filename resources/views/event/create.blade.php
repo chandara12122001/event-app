@@ -9,16 +9,16 @@
         <form method="post" action="{{route('event.store')}}" enctype="multipart/form-data">
             @csrf
             <div class="p-10 flex flex-col space-y-10 items-center justify-center">
-                <div class="border rounded-md p-3 bg-white w-1/3">
+                <div class="border rounded-md p-3 bg-white sm sm:w-1/3 w-full w-full">
                     <input type="text" name="title" placeholder="Event title" class=" outline-none w-full">
                 </div>
-                <div class="border rounded-md p-3 bg-white w-1/3">
+                <div class="border rounded-md p-3 bg-white sm:w-1/3 w-full">
                     <input type="file" name="files[]" multiple>
                     {{-- <input type="file" name="files[]" placeholder="Event title" class=" outline-none w-full" multiple> --}}
                 </div>
                 <textarea name="description" id="" cols="30" rows="5" placeholder="description"
-                    class="border rounded-md p-3 bg-white w-1/3 outline-none"></textarea>
-                <div class="flex flex-row space-x-5 w-1/3">
+                    class="border rounded-md p-3 bg-white sm:w-1/3 w-full outline-none"></textarea>
+                <div class="flex flex-row space-x-5 sm:w-1/3 w-full">
                     <div class="border rounded-md p-3 bg-white w-full">
                         <input type="number" placeholder="price" name="price" class=" outline-none w-full">>
                         {{-- <input type="text" name="price" placeholder="Price" class=" outline-none w-full"> --}}
@@ -33,24 +33,29 @@
                         <input type="date" name="event_date" placeholder="Date" class=" outline-none w-full">
                     </div>
                 </div>
-                <div class="flex flex-col space-y-5 w-1/3">
-                    <div>
-                        <p>Please add new location if does not exsit</p>
+                <div class="flex flex-col space-y-5 sm:w-1/3 w-full">
+                    <div class="flex flex-row space-x-3 w-full">
+                        <div class="w-1/2 text-center bg-orange-500 rounded-md text-white py-2 cursor-pointer" onclick="addNewLocation()">
+                            <p>Add new location</p>
+                        </div>
+                        <div class="w-1/2 text-center bg-red-500 rounded-md text-white py-2 cursor-pointer" onclick="addExistedLocation()">
+                            <p>Add existed location</p>
+                        </div>
                     </div>
                     <div class="flex flex-row space-x-5 w-full">
-                        <div class="border rounded-md p-3 bg-white w-1/2">
+                        <div class="border rounded-md p-3 bg-white w-full hidden" id="existedLocation">
                             {{-- <select name="location" id="" class="bg-white w-full">
                                 <option value="#">#</option>
                                 <option value="#" selected>Select a location</option>
                             </select> --}}
-                            <select name="location" id="" class="bg-white w-full">
-                                <option value="#" selected>Select a location</option>u
+                            <select name="location" class="bg-white w-full">
+                                <option value="#" selected>Select a location</option>
                                 @foreach ($locations as $location)
                                 <option value="{{$location->id}}">{{$location->name}}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="border rounded-md p-3 bg-white w-1/2">
+                        <div class="border rounded-md p-3 bg-white w-full hidden" id="newLocation">
                             <input type="text" name="new_location" placeholder="New location"
                                 class=" outline-none w-full">
                             <input type="text" name="lng" placeholder="longtitude" class=" outline-none w-full">
@@ -58,7 +63,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-row space-x-5 w-1/3">
+                <div class="flex flex-row space-x-5 sm:w-1/3 w-full">
                     <div class="w-1/2 text-center bg-red-500 text-white py-2 rounded-md cursor-pointer">
                         <button type="submit">Publish</button>
                     </div>
@@ -72,4 +77,14 @@
 
     </div>
 </div>
+<script>
+    function addNewLocation(){
+        document.getElementById('newLocation').classList.remove('hidden');
+        document.getElementById('existedLocation').classList.add('hidden');
+    }
+    function addExistedLocation(){
+        document.getElementById('newLocation').classList.add('hidden');
+        document.getElementById('existedLocation').classList.remove('hidden');
+    }
+</script>
 @endsection
