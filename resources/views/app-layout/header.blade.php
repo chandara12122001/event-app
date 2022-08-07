@@ -69,53 +69,54 @@
                 </div>
             </div>
         </div>
+        <div class="flex-col justify-end items-center space-y-5 min-w-min-content absolute bg-white right-0 uppercase hidden p-3 text-sm" id="small-nav">
+            <div class="px-3 py-5 absolute right-0 text-red-500 text-lg cursor-pointer" onclick="classSmallMenu()">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </div>
+            <div class="px-3 py-5 link">
+                <a href="/">home</a>
+            </div>
+            <div class="px-3 py-5 link">
+                <a href="{{route('allevents')}}">all events</a>
+            </div>
+            <div class="px-3 py-5 link">
+                <a href="event/new">post event</a>
+            </div>
+            <div class="px-3 py-5 link">
+                <a href="/">about us</a>
+            </div>
+            <div class="px-3 py-5 link">
+                <a href="/">contact us</a>
+            </div>
+            <div class="flex flex-row p-2 capitalize text-white bg-blue-500 rounded-md space-x-3 items-center">
+                @auth
+                <div class=" link">
+                    @if (auth()->user()->avatar)
+                    <img src="{{auth()->user()->avatar}}" alt="{{auth()->user()->name}}">
+                    @endif
+                    <a href="">{{auth()->user()->username}}</a>
+                </div>
+                <div class=" link">
+                    <form action="{{route('logout')}}" method="POST">
+                        @csrf
+                        <button type="submit">Logout</button>
+                    </form>
+                </div>
+                @endauth
+                @guest
+                <div class=" link bg-white text-blue-500 p-1 px-3 rounded-md">
+                    <a href="{{route('login')}}">Login</a>
+                </div>
+                <div class=" link">
+                    <a href="{{route('register')}}">Register</a>
+                </div>
+                @endguest
+            </div>
+        </div>
     </nav>
 </div>
 
-<div class="flex-col justify-end items-center space-y-5 min-w-min-content absolute bg-white right-0 uppercase hidden p-3" id="small-nav">
-    <div class="px-3 py-5 absolute right-0 text-red-500 text-lg cursor-pointer" onclick="classSmallMenu()">
-        <i class="fa-solid fa-circle-xmark"></i>
-    </div>
-    <div class="px-3 py-5 link">
-        <a href="/">home</a>
-    </div>
-    <div class="px-3 py-5 link">
-        <a href="{{route('allevents')}}">all events</a>
-    </div>
-    <div class="px-3 py-5 link">
-        <a href="event/new">post event</a>
-    </div>
-    <div class="px-3 py-5 link">
-        <a href="/">about us</a>
-    </div>
-    <div class="px-3 py-5 link">
-        <a href="/">contact us</a>
-    </div>
-    <div class="flex flex-row p-2 capitalize text-white bg-blue-500 rounded-md space-x-3 items-center">
-        @auth
-        <div class=" link">
-            @if (auth()->user()->avatar)
-            <img src="{{auth()->user()->avatar}}" alt="{{auth()->user()->name}}">
-            @endif
-            <a href="">{{auth()->user()->username}}</a>
-        </div>
-        <div class=" link">
-            <form action="{{route('logout')}}" method="POST">
-                @csrf
-                <button type="submit">Logout</button>
-            </form>
-        </div>
-        @endauth
-        @guest
-        <div class=" link bg-white text-blue-500 p-1 px-3 rounded-md">
-            <a href="{{route('login')}}">Login</a>
-        </div>
-        <div class=" link">
-            <a href="{{route('register')}}">Register</a>
-        </div>
-        @endguest
-    </div>
-</div>
+
 
 <script>
     function smallNavClicked(){

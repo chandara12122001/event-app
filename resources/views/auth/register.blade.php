@@ -89,7 +89,7 @@ Register
             <div class="flex-col space-y-5">
                 <form action="/register" method="post">
                     @csrf
-                    <div class="flex flex-col space-y-5 items-center justify-center w-full">
+                    <div class="flex flex-col space-y-5 items-center justify-center w-full sm:w-1/2">
                         <div class="w-full flex flex-row items-center justify-evenly">
                             <div class="flex flex-row space-x-3 p-2 items-center justify-center text-white bg-red-500 rounded-md">
                               <div>
@@ -112,7 +112,7 @@ Register
                             <p>Or</p>
                         </div>
                         <div class="flex flex-col space-y-3 w-full">
-                            <div class="border rounded-md p-3 bg-white sm:w-1/2 w-full">
+                            <div class="border rounded-md p-3 bg-white w-full">
                                 <label for="name" class="sr-only">Name</label>
                                 <input type="text" class="outline-none w-full @error('name') border-red-500 @enderror"
                                     placeholder="Fullname" name="name" value="{{old('name')}}">
@@ -122,7 +122,7 @@ Register
                                 </div>
                                 @enderror
                             </div>
-                            <div class="border rounded-md p-3 bg-white sm:w-1/2 w-full">
+                            <div class="border rounded-md p-3 bg-white w-full">
                                 <input type="text" class=" outline-none w-full  @error('username') border-red-500 @enderror"
                                     placeholder="Username" name="username" value="{{old('username')}}">
                                 @error('username')
@@ -131,7 +131,7 @@ Register
                                 </div>
                                 @enderror
                             </div>
-                            <div class="border rounded-md p-3 bg-white sm:w-1/2 w-full">
+                            <div class="border rounded-md p-3 bg-white w-full">
                                 <input type="text"
                                     class=" outline-none w-full @error('phone_number') border-red-500 @enderror"
                                     placeholder="Phone number" name="phone_number" value="{{old('phone_number')}}">
@@ -141,7 +141,7 @@ Register
                                 </div>
                                 @enderror
                             </div>
-                            <div class="border rounded-md p-3 bg-white sm:w-1/2 w-full">
+                            <div class="border rounded-md p-3 bg-white w-full">
                                 <input type="email" class=" outline-none w-full @error('email') border-red-500 @enderror"
                                     placeholder="Email" name="email" value="{{old('email')}}">
                                 @error('email')
@@ -150,7 +150,7 @@ Register
                                 </div>
                                 @enderror
                             </div>
-                            <div class="border rounded-md p-3 bg-white sm:w-1/2 w-full">
+                            <div class="border rounded-md p-3 bg-white w-full">
                                 <input type="password"
                                     class=" outline-none w-full @error('password') border-red-500 @enderror"
                                     placeholder="Password" name="password">
@@ -160,7 +160,7 @@ Register
                                 </div>
                                 @enderror
                             </div>
-                            <div class="border rounded-md p-3 bg-white sm:w-1/2 w-full">
+                            <div class="border rounded-md p-3 bg-white w-full">
                                 <input type="password"
                                     class=" outline-none w-full @error('password_confirmation') border-red-500 @enderror"
                                     placeholder="Confirm password" name="password_confirmation">
@@ -173,7 +173,7 @@ Register
                         </div>
                         
                         <div class="w-full">
-                            <button type="submit" class="sm:w-1/2 w-full border-none bg-blue-600 text-white p-3 rounded-md">
+                            <button type="submit" class="w-full border-none bg-blue-600 text-white p-3 rounded-md">
                                 Register
                             </button>
                         </div>

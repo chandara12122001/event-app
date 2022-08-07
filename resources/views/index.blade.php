@@ -4,7 +4,7 @@
         {{-- Start hero --}}
         <div class="">
             <div style="background-image:url(https://traconference.eu/wp-content/uploads/2021/08/pexels-luis-quintero-2833037-scaled-e1629113060469.jpg);"
-            class=" bg-cover bg-center">
+            class=" bg-cover bg-center h-screen">
                 <div class="bg-gradient-to-r from-gray-900 to-transparent w-full h-full">
                     <div class="flex flex-col space-y-5 text-white items-start h-full justify-center sm:p-56 p-14">
                         <div class="sm:text-4xl text-lg">
