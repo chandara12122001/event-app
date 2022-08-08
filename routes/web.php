@@ -94,3 +94,7 @@ Route::get('show', function(){
 Route::get('/allevents', AllEvents::class)->name('allevents');
 
 Route::get('/userprofile', UploadProfile::class);
+
+Route::get('/verify', function(){
+    return view('auth.verify');
+});
