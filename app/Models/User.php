@@ -47,9 +47,9 @@ class User extends Authenticatable implements CanResetPassword
         'email_verified_at' => 'datetime',
     ];
 
-    // public function events(){
-    //     return $this->hasMany(Event::class);
-    // }
+    public function events(){
+        return $this->belongsToMany(Event::class);
+    }
 
     public function profile(){
         return $this->hasMany(Image::class);

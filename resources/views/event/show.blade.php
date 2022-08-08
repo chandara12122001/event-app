@@ -1,8 +1,9 @@
 @extends('app-layout.app')
 @section('content')
 {{-- Start event feature --}}
+{{-- {{dd($event->organizer)}} --}}
 <div class="mb-10">
-    <div style="background-image: url({{asset($event->images[0]->image)}})" class="bg-cover bg-center pt-1/6">
+    <div style="background-image: url({{Storage::url($event->images[0]->image)}})" class="bg-cover bg-center pt-1/6">
         <div class="bg-gradient-to-t from-gray-900 to-transparent w-full h-full">
             <div class="md:px-36 px-20 py-10 flex flex-col space-y-5">
                 <div class="text-3xl text-white font-bold">
@@ -138,7 +139,7 @@
                             </div>
                         </div>
                         <div class="w-full rounded-md shadow-md">
-                            @livewire('map-location', ['event' => $event])
+                            @livewire('map-location', ['lng' => $event->location->lng, 'lat'=>$event->location->lat])
                         </div>
                     </div>
                 </div>
@@ -163,7 +164,10 @@
                                     <i class="fa-solid fa-phone"></i>
                                 </div>
                                 <div>
+                                    @if (!empty($event->oragnizer[0]->phone_number))
                                     {{$event->organizer[0]->phone_number}}
+
+                                    @endif
                                 </div>
                             </div>
                             <div class="flex flex-row space-x-3 p-3">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Image;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -63,6 +64,12 @@ class LoginController extends Controller
             $user->provider_id = $data->id;
             $user->avatar = $data->avatar;
             $user->save();
+            Image::create(
+                [
+                    'user_id' => $user->id,
+                    'image' => 'public/profile/defaultProfile.png'
+                ]
+            );
         }
         Auth::login($user); 
     }

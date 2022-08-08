@@ -32,13 +32,11 @@
                     <div class="flex flex-row p-2 capitalize text-white bg-blue-500 rounded-md space-x-3 items-center">
                         @auth
                         <div class=" link">
-                            @if (auth()->user()->avatar)
-                            <img src="{{auth()->user()->avatar}}" alt="{{auth()->user()->name}}">
-                            @endif
                             @if(auth()->user()->profile->isNotEmpty())
                             <img src="{{Storage::url(auth()->user()->profile->last()->image)}}" style="width: 50px;height:50px" alt="">
-                            <a href="/userprofile">{{auth()->user()->name}}</a>
                             @endif
+                            <a href="/userprofile">{{auth()->user()->name}}</a>
+
                         </div>
                         <div class=" link">
                             <form action="{{route('logout')}}" method="POST">

@@ -8,6 +8,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\UserController;
+use App\Http\Livewire\AllEvents;
 use App\Http\Livewire\EventInfoIncrement;
 use App\Http\Livewire\MapLocation;
 use App\Http\Livewire\UploadProfile;
@@ -89,6 +90,7 @@ Route::get('show', function(){
     return view('event.show');
 });
 
-Route::get('/allevents', [EventController::class, 'index'])->name('allevents');
+// Route::get('/allevents', [EventController::class, 'index'])->name('allevents');
+Route::get('/allevents', AllEvents::class)->name('allevents');
 
 Route::get('/userprofile', UploadProfile::class);

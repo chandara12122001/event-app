@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPmailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -79,6 +81,12 @@ class RegisterController extends Controller
             //     'email_verification_code' => $email_verification_code
             // ]);
             $user->save();
+            Image::create(
+                [
+                    'user_id' => $user->id,
+                    'image' => 'public/profile/defaultProfile.png'
+                ]
+            );
         } catch (Exception $e) {
             echo "Message could not be sent, Mailer Error: {$mail->ErrorInfo}";
         }

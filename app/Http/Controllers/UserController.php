@@ -98,7 +98,7 @@ class UserController extends Controller
     public function createProfile(Request $request)
     {
         // dd("ok create profile");
-        dd($request->file('file'));
+        // dd($request->file('file'));
         $file = $request->file('file');
         $image_name = md5(rand(1000, 10000));
         $ext = strtolower($file->getClientOriginalExtension());

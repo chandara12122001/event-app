@@ -36,4 +36,12 @@ class Event extends Model
     public function images(){
         return $this->hasMany(Image::class);
     }
+
+    public function scopeSearch($query, $term){
+        $term = "%$term%";
+        $query->where(function($query) use ($term){
+            $query->where('title', 'like', $term)
+                    ->orWhere('description', 'like', $term);
+        });
+    }
 }

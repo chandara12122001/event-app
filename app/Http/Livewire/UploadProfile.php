@@ -19,6 +19,7 @@ class UploadProfile extends Component
 
     public function save(){
         // dd($this->photo);
+        // dd($this->photo);
         $filePath = $this->photo->store('public/profile');
         // dd(auth()->user()->id);
         Image::create(

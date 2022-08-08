@@ -2,156 +2,136 @@
 
 @section('content')
 <div class="w-ful p-36 bg-gray-700 text-white text-2xl text-center">
-    Login
+  Login
 </div>
 <div class="mx-auto">
-    @if (session('status'))
-        `{{session('status')}}
-    @endif
-    <form action="/login" method="POST">
-        @csrf
-        <div>
-            <label for="">email</label>
-            <input type="email" name="email"  placeholder="email"
-                class="@error('email') border-red-500 @enderror" value="{{old('email')}}">
-            @error('email')
-            <div class="text-red-500 mt-2 text-sm">
-                {{$message}}
-            </div>
-            @enderror
-        </div>
-        <div>
-            <label for="">password</label>
-            <input type="password" name="password" placeholder="password"
-                class="@error('password') border-red-500 @enderror">
-            @error('password')
-            <div class="text-red-500 mt-2 text-sm">
-                {{$message}}
-            </div>
-            @enderror
-        </div>
-        <div>
-            <div class="flex items-center">
-                <input type="checkbox" name="remember" id="remember" class="mr-2">
-                <label for="remember">Remember me</label>
-            </div>
-        </div>
-        <div>
-            <button type="submit">Login</button>
-        </div>
-    </form>
+  @if (session('status'))
+  `{{session('status')}}
+  @endif
+  <form action="/login" method="POST">
+    @csrf
+    <div>
+      <label for="">email</label>
+      <input type="email" name="email" placeholder="email" class="@error('email') border-red-500 @enderror"
+        value="{{old('email')}}">
+      @error('email')
+      <div class="text-red-500 mt-2 text-sm">
+        {{$message}}
+      </div>
+      @enderror
+    </div>
+    <div>
+      <label for="">password</label>
+      <input type="password" name="password" placeholder="password" class="@error('password') border-red-500 @enderror">
+      @error('password')
+      <div class="text-red-500 mt-2 text-sm">
+        {{$message}}
+      </div>
+      @enderror
+    </div>
+    <div>
+      <div class="flex items-center">
+        <input type="checkbox" name="remember" id="remember" class="mr-2">
+        <label for="remember">Remember me</label>
+      </div>
+    </div>
+    <div>
+      <button type="submit">Login</button>
+    </div>
+  </form>
 </div>
 @endsection --}}
 
 
 @extends('app-layout.app')
 @section('content')
-    <div class="py-10 sm:px-36 px-10">
-        <section class="h-screen">
-            <div class="px-6 text-gray-800 h-full">
-              <div class="flex sm:flex-row flex-col w-full items-center justify-center h-full">
-                <div
-                  class="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0 w-full">
-                  <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-                    class="w-full"
-                    alt="Sample image"
-                  />
+<div class="py-10 sm:px-36 px-10">
+  <section class="h-screen">
+    <div class="px-6 text-gray-800 h-full">
+      <div class="flex sm:flex-row flex-col w-full items-center justify-center h-full">
+        <div class="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0 w-full">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="w-full"
+            alt="Sample image" />
+        </div>
+        <div class="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
+          <form method="POST" action="/login">
+            @csrf
+            <div class="w-full flex flex-row items-center justify-evenly space-x-3">
+              <div class="flex flex-row space-x-3 p-2 items-center justify-center text-white bg-red-500 rounded-md">
+                <div>
+                  <i class="fa-brands fa-google"></i>
                 </div>
-                <div class="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
-                  <form method="POST" action="/login">
-                    @csrf
-                    <div class="w-full flex flex-row items-center justify-evenly space-x-3">
-                      <div class="flex flex-row space-x-3 p-2 items-center justify-center text-white bg-red-500 rounded-md">
-                        <div>
-                          <i class="fa-brands fa-google"></i>
-                        </div>
-                        <div>
-                          <a href="{{route('login.google')}}">Google</a>
-                        </div>
-                      </div>
-                      <div class="flex flex-row space-x-3 p-2 items-center justify-center text-white bg-blue-500 rounded-md">
-                        <div>
-                          <i class="fa-brands fa-facebook"></i>
-                        </div>
-                        <div>
-                          <a href="{{route('login.facebook')}}">Facebook</a>
-                        </div>
-                      </div>
-                    </div>
-          
-                    <div
-                      class="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5"
-                    >
-                      <p class="text-center font-semibold mx-4 mb-0 w-full">Or</p>
-                    </div>
-          
-                    <!-- Email input -->
-                    <div class="mb-6">
-                      <input
-                        type="text"
-                        class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                        id="exampleFormControlInput2"
-                        placeholder="Email address"
-                        name="email"
-                      />
-                      @error('email')
-            <div class="text-red-500 mt-2 text-sm">
-                {{$message}}
-            </div>
-            @enderror
-                    </div>
-          
-                    <!-- Password input -->
-                    <div class="mb-6">
-                      <input
-                        type="password"
-                        class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                        id="exampleFormControlInput2"
-                        placeholder="Password"
-                        name="password"
-                      />
-                      @error('password')
-            <div class="text-red-500 mt-2 text-sm">
-                {{$message}}
-            </div>
-            @enderror
-                    </div>
-          
-                    <div class="flex sm:flex-row items-center justify-evenly mb-6 w-full text-sm">
-                      <div class="form-group form-check flex-col">
-                        <input
-                          type="checkbox"
-                          class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                          id="exampleCheck2"
-                        />
-                        <label class="form-check-label inline-block text-gray-800" for="exampleCheck2"
-                          >Remember me</label
-                        >
-                      </div>
-                      <a href="#!" class="text-gray-800">Forgot password?</a>
-                    </div>
-          
-                    <div class="text-center lg:text-left">
-                      <button
-                        type="submit"
-                        class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-                      >
-                        Login
-                      </button>
-                      <p class="text-sm font-semibold mt-2 pt-1 mb-0">
-                        Don't have an account?
-                        <a
-                          href="/register"
-                          class="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
-                          >Register</a
-                        >
-                      </p>
-                    </div>
-                  </form>
+                <div>
+                  <a href="{{route('login.google')}}">Google</a>
+                </div>
+              </div>
+              <div class="flex flex-row space-x-3 p-2 items-center justify-center text-white bg-blue-500 rounded-md">
+                <div>
+                  <i class="fa-brands fa-facebook"></i>
+                </div>
+                <div>
+                  <a href="{{route('login.facebook')}}">Facebook</a>
                 </div>
               </div>
             </div>
-          </section>
+
+            <div
+              class="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
+              <p class="text-center font-semibold mx-4 mb-0 w-full">Or</p>
+            </div>
+
+            <!-- Email input -->
+            @if (session('status'))
+              <p class="text-red-500 mt-2 text-sm font-light">{{session('status')}}</p>
+            @endif
+            <div class="mb-6">
+              <input type="text"
+                class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                id="exampleFormControlInput2" placeholder="Email address" name="email" />
+              @error('email')
+              <div class="text-red-500 mt-2 text-sm">
+                {{$message}}
+              </div>
+              @enderror
+            </div>
+
+            <!-- Password input -->
+            <div class="mb-6">
+              <input type="password"
+                class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                id="exampleFormControlInput2" placeholder="Password" name="password" />
+              @error('password')
+              <div class="text-red-500 mt-2 text-sm">
+                {{$message}}
+              </div>
+              @enderror
+            </div>
+
+            <div class="flex sm:flex-row items-center justify-evenly mb-6 w-full text-sm">
+              <div class="form-group form-check flex-col">
+                <input type="checkbox"
+                  class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                  id="exampleCheck2" />
+                <label class="form-check-label inline-block text-gray-800" for="exampleCheck2">Remember me</label>
+              </div>
+              <a href="#!" class="text-gray-800">Forgot password?</a>
+            </div>
+
+            <div class="text-center lg:text-left">
+              <button type="submit"
+                class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                Login
+              </button>
+              <p class="text-sm font-semibold mt-2 pt-1 mb-0">
+                Don't have an account?
+                <a href="/register"
+                  class="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out">Register</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
+  </section>
+</div>
 @endsection
