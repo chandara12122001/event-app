@@ -8,7 +8,7 @@
             <div>
                 <div class=" w-48 justify-self-start">
                     <a href="/">
-                        <img class=" rounded-xl" src="{{asset('storage/logo.png')}}" alt="">
+                        <img class=" rounded-xl" src="{{Storage::url('logo.png')}}" alt="">
                     </a>
                 </div>
             </div>
