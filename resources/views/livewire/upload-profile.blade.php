@@ -57,6 +57,35 @@
                 </div>
                 @endif
             </div>
+            <div class="w-1/3 flex flex-col space-y-5 text-lg p-7 border rounded-lg text-white bg-gray-700">
+                <div class="flex flex-row space-x-3 text-xl">
+                    <div>
+                        <i class="fa-solid fa-gear"></i>
+                   </div>
+                   <div>
+                        <p>Setting</p>
+                   </div>
+                </div>
+                <div>
+                    <hr>
+                </div>
+                <div class="flex flex-row space-x-3 p-3 bg-white text-gray-700 rounded-md">
+                    <div>
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </div>
+                    <div>
+                        <p>Edit Name</p>
+                    </div>
+                </div>
+                <div class="flex flex-row space-x-3 p-3 bg-white text-gray-700 rounded-md">
+                    <div>
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </div>
+                    <div>
+                        <p>Edit Passwword</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

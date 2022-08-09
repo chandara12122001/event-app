@@ -28,7 +28,7 @@
     </div>
 </div>
 <div class="m-10 sm:mx-36 mx-10">
-    <div class="flex flex-row space-x-5">
+    <div class="flex flex-row space-x-5 w-full">
         <div class="w-1/3 flex flex-col space-y-5 text-lg p-7 border rounded-lg text-white bg-gray-700">
             <div>
                 <p>Name: Ray Channudam</p>

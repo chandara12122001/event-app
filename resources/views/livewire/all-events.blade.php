@@ -66,10 +66,10 @@
     @if ($search)
         {{-- {{dd($events)}} --}}
     @endif
-    <div>
+    <div class="flex sm:flex-row w-full sm:space-x-10 sm:space-y-0 p-3 flex-col space-y-5 sm:items-center items-start justify-center m-10">
         <div>
             <label for="">Location</label>
-            <select wire:model="byLocation">
+            <select wire:model="byLocation" class="p-3 rounded-md">
                 <option value="">Not selected</option>
                 @foreach ($locations as $location)
                     <option value="{{$location->id}}">{{$location->name}}</option>
@@ -78,11 +78,11 @@
         </div>
         <div>
             <label for="">Search</label>
-            <input type="text" wire:model.debounce.350ms="search">
+            <input type="text" wire:model.debounce.350ms="search" class="p-3 rounded-md outline-none py-2">
         </div>
         <div>
             <label for="">Per page</label>
-            <select wire:model="perPage">
+            <select wire:model="perPage" class="p-3 rounded-md">
                 <option value="10">10</option>
                 <option value="15">15</option>
                 <option value="20">20</option>
@@ -90,7 +90,7 @@
         </div>
         <div>
             <label for="">Sort By</label>
-            <select wire:model="sortBy">
+            <select wire:model="sortBy" class="p-3 rounded-md">
                 <option value="asc">AESC</option>
                 <option value="desc">DESC</option>
             </select>
