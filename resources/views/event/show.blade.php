@@ -207,16 +207,6 @@
                         </div>
                         <div class="flex flex-row">
                             @livewire('event-info-increment', ['event' => $event, 'user' => Auth::user()])
-                            {{-- <div
-                                class="w-1/3 p-2 text-center text-white rounded-md bg-orange-400 rounded-tr-none rounded-br-none">
-                                <a onclick="interestedClick()">
-                                    Interested
-                                </a>
-                            </div>
-                            <div
-                                class="w-2/3 p-2 text-center text-white rounded-md bg-red-400 rounded-tl-none rounded-bl-none">
-                                Going
-                            </div> --}}
                         </div>
                     </div>
                 </div>

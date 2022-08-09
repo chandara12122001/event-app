@@ -40,13 +40,11 @@ class EventInfoIncrement extends Component
                 if ($this->interested) {
                     $this->event->update([
                         'interested' => $this->event->interested + 1,
-                        'no_of_seats' => $this->event->no_of_seats - 1
                     ]);
                     $this->event->users()->attach($this->user);
                 } else {
                     $this->event->update([
                         'interested' => $this->event->interested - 1,
-                        'no_of_seats' => $this->event->no_of_seats + 1
                     ]);
                     $this->event->users()->detach($this->user);
                 }
@@ -59,9 +57,35 @@ class EventInfoIncrement extends Component
     }
     public function incrementGoing()
     {
-        $this->event->update([
-            'going' => $this->event->going + 1,
-        ]);
-        $this->event->users()->attach($this->user);
+        if ($this->user) {
+            $userInEvents = $this->event->users;
+            if ($this->event->no_of_seats > 0) {
+                foreach ($userInEvents as $user) {
+                    if ($user->id != $this->user->id) {
+                        $this->going = true;
+                    } else if ($user->id == $this->user->id) {
+                        $this->going = false;
+                    }
+                }
+                // dd($newJoinUser);
+                if ($this->going) {
+                    $this->event->update([
+                        'going' => $this->event->going + 1,
+                        'no_of_seats' => $this->event->no_of_seats - 1
+                    ]);
+                    $this->event->users()->attach($this->user);
+                } else {
+                    $this->event->update([
+                        'going' => $this->event->going - 1,
+                        'no_of_seats' => $this->event->no_of_seats + 1
+                    ]);
+                    $this->event->users()->detach($this->user);
+                }
+            } else {
+                return with('status', 'Seats are not avaialble');
+            }
+        }else{
+            return redirect('/login')->with('fail', 'You have to logged in first');;
+        }
     }
 }
