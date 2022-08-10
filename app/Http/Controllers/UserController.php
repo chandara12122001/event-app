@@ -59,6 +59,8 @@ class UserController extends Controller
     public function edit($id)
     {
         //
+        $user = User::findOrFail($id);
+        return view('user.update', compact('user'));
     }
 
     /**
@@ -71,6 +73,15 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        $user = User::findOrFail($id);
+        $user->name = $request->name;
+        $user->phone_number = $request->phone_number;
+        $user->username = $request->username;
+
+        $user->save();
+        
+        return redirect('/userprofile')->with('success', "You have successfully updated your information!");
     }
 
     /**

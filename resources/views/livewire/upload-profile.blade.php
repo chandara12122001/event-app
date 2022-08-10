@@ -1,6 +1,9 @@
 {{-- {{dd(auth()->user()->events)}} --}}
 
 <div>
+    @if (Session::get('success'))
+        <p class="text-red-500 text-lg">{{Session::get('success')}}</p>
+    @endif
     <div class=" m-10 sm:mx-36 mx-10">
         <div class="border rounded-lg bg-cover bg-center sm:w-full sm:h-60 w-full h-32 p-5 flex flex-row space-x-3 items-center justify-center"
             style="background-image:url('https://images.hdqwalls.com/wallpapers/sunset-beautiful-painting.jpg')">
@@ -61,10 +64,10 @@
                 <div class="flex flex-row space-x-3 text-xl">
                     <div>
                         <i class="fa-solid fa-gear"></i>
-                   </div>
-                   <div>
+                    </div>
+                    <div>
                         <p>Setting</p>
-                   </div>
+                    </div>
                 </div>
                 <div>
                     <hr>
@@ -74,7 +77,7 @@
                         <i class="fa-solid fa-pen-to-square"></i>
                     </div>
                     <div>
-                        <a href="updateProfile">Edit Name</a>
+                        <a href="/user/{{auth()->user()->id}}">Edit Information</a>
                     </div>
                 </div>
                 <div class="flex flex-row space-x-3 p-3 bg-white text-gray-700 rounded-md">
@@ -93,7 +96,9 @@
     <div class="m-10 sm:mx-36 mx-10">
         <div class="flex flex-col space-y-10">
             <div class=" grid md:grid-cols-3 gap-4 grid-cols-1">
+                {{-- {{dd(auth()->user()->)}} --}}
                 @foreach (auth()->user()->events as $event)
+                @if($event->organizer[0]->id == auth()->user()->id)
                 <div class="flex flex-row shadow-md rounded-md">
                     <div class="w-1/3 h-full p-3 bg-center bg-cover rounded-tl-md rounded-bl-md"
                         style="background-image:url('https://www.eccc.gov.kh/sites/default/files/inline-images/IMG-20220217-WA0008%20%28002%29.jpg')">
@@ -141,6 +146,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
                 @endforeach
             </div>
         </div>
