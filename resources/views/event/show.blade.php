@@ -153,7 +153,8 @@
                                 <div class="sm:text-lg text-sm">
                                     {{$event->organizer[0]->name}}
                                 </div>
-                                <div class=" flex-grow flex flex-row justify-end text-white relative right-0 sm:text-lg text-sm">
+                                <div
+                                    class=" flex-grow flex flex-row justify-end text-white relative right-0 sm:text-lg text-sm">
                                     <div class=" bg-green-400 rounded-md p-2">
                                         <p>Organizer</p>
                                     </div>
@@ -164,66 +165,65 @@
                                 <div class="text-green-400">
                                     <i class="fa-solid fa-phone"></i>
                                 </div>
-<<<<<<< HEAD
                                 <div class="sm:text-lg text-sm">
                                     @if (!empty($event->oragnizer[0]->phone_number))
-=======
-                                <div>
->>>>>>> 3805046237f34504fb3746df3c9c98207c66aa24
-                                    {{$event->organizer[0]->phone_number}}
+                                    <div>
+                                        {{$event->organizer[0]->phone_number}}
+                                    </div>
+                                    @endif
+
                                 </div>
                             </div>
-<<<<<<< HEAD
-                            <div class="flex flex-row space-x-3 p-3 w-full">
-=======
                             @endif
-                            <div class="flex flex-row space-x-3 p-3">
->>>>>>> 3805046237f34504fb3746df3c9c98207c66aa24
-                                <div class="text-green-400">
-                                    <i class="fa-solid fa-envelope"></i>
+                                <div class="flex flex-row space-x-3 p-3 w-full">
+                                    <div class="flex flex-row space-x-3 p-3">
+                                        <div class="text-green-400">
+                                            <i class="fa-solid fa-envelope"></i>
+                                        </div>
+                                        <div class="w-full sm:text-lg text-sm">
+                                            {{$event->organizer[0]->email}}
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="w-full sm:text-lg text-sm">
-                                    {{$event->organizer[0]->email}}
+                                <div class="flex flex-col rounded-md w-full h-1/2">
+                                    <div class="flex flex-row space-x-5 p-3">
+                                        <div class="text-red-400">
+                                            <i class="fa-solid fa-calendar-check"></i>
+                                        </div>
+                                        <div>
+                                            <p>{{$event->going}} people is going</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-row space-x-5 p-3">
+                                        <div class="text-red-400">
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <div>
+                                            <p id="interestedNum">{{$event->interested}} is interested</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-row space-x-5 p-3">
+                                        <div class="text-red-400">
+                                            <i class="fa-solid fa-chair"></i>
+                                        </div>
+                                        <div>
+                                            <p>{{$event->no_of_seats}} seats are available </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-row w-full">
+
+                                    <div class="flex flex-row">
+                                        @livewire('event-info-increment', ['event' => $event, 'user' => Auth::user()])
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-<<<<<<< HEAD
-                        <div class="flex flex-col rounded-md w-full h-1/2">
-                            <div class="flex flex-row space-x-5 p-3">
-                                <div class="text-red-400">
-                                    <i class="fa-solid fa-calendar-check"></i>
-                                </div>
-                                <div>
-                                    <p>{{$event->going}} people is going</p>
-                                </div>
-                            </div>
-                            <div class="flex flex-row space-x-5 p-3">
-                                <div class="text-red-400">
-                                    <i class="fa-solid fa-star"></i>
-                                </div>
-                                <div>
-                                    <p id="interestedNum">{{$event->interested}} is interested</p>
-                                </div>
-                            </div>
-                            <div class="flex flex-row space-x-5 p-3">
-                                <div class="text-red-400">
-                                    <i class="fa-solid fa-chair"></i>
-                                </div>
-                                <div>
-                                    <p>{{$event->no_of_seats}} seats are available </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex flex-row w-full">
-=======
-                        
-                        <div class="flex flex-row">
->>>>>>> 3805046237f34504fb3746df3c9c98207c66aa24
-                            @livewire('event-info-increment', ['event' => $event, 'user' => Auth::user()])
                         </div>
                     </div>
+                    {{-- End detail info --}}
+                    @endsection
                 </div>
             </div>
         </div>
-        {{-- End detail info --}}
-        @endsection
+    </div>
+</div>

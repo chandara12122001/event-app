@@ -64,15 +64,16 @@
     </div> --}}
     {{-- End filter --}}
     @if ($search)
-        {{-- {{dd($events)}} --}}
+    {{-- {{dd($events)}} --}}
     @endif
-    <div class="flex sm:flex-row w-full sm:space-x-10 sm:space-y-0 p-3 flex-col space-y-5 sm:items-center items-start justify-center m-10">
+    <div
+        class="flex sm:flex-row w-full sm:space-x-10 sm:space-y-0 p-3 flex-col space-y-5 sm:items-center items-start justify-center m-10">
         <div>
             <label for="">Location</label>
             <select wire:model="byLocation" class="p-3 rounded-md">
                 <option value="">Not selected</option>
                 @foreach ($locations as $location)
-                    <option value="{{$location->id}}">{{$location->name}}</option>
+                <option value="{{$location->id}}">{{$location->name}}</option>
                 @endforeach
             </select>
         </div>
@@ -139,17 +140,14 @@
                             </div>
                         </div>
                         <div>
-                            <div class="flex sm:flex-row w-full flex-col items-center rounded-md sm:text-lg text-sm space-y-3 sm:space-y-0 sm:space-x-3">
+                            <div
+                                class="flex sm:flex-row w-full flex-col items-center rounded-md sm:text-lg text-sm space-y-3 sm:space-y-0 sm:space-x-3">
                                 <div
-<<<<<<< HEAD
                                     class="sm:w-2/3 w-full text-center p-2 bg-red-500 text-white rounded-tl-md rounded-bl-md cursor-pointer rounded-md">
-                                    <p>Going</p>
-=======
-                                    class="w-2/3 text-center p-2 bg-red-500 text-white rounded-tl-md rounded-bl-md cursor-pointer">
                                     <p>{{$event->going}} Going</p>
->>>>>>> 3805046237f34504fb3746df3c9c98207c66aa24
                                 </div>
-                                <div class="text-center p-2 bg-orange-400 text-white sm:w-1/3 w-full rounded-tr-md rounded-br-md rounded-md">
+                                <div
+                                    class="text-center p-2 bg-orange-400 text-white sm:w-1/3 w-full rounded-tr-md rounded-br-md rounded-md">
                                     <a href="/event/{{$event->id}}">Learn more</a>
                                 </div>
                             </div>
