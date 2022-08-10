@@ -22,7 +22,7 @@ $images = explode('|', $event->images)
                     <input type="text" name="title" placeholder="Event title" value="{{$event->title}}" class="w-1/4 p-3 rounded-md">
                 </div>
                 <div class="text-center">
-                    <input type="file" name="files[]" multiple class="form-control" value="{{$event->files}}" class="w-1/4 p-3 rounded-md">
+                    <input type="file" name="file" class="form-control" class="w-1/4 p-3 rounded-md">
                 </div>
                 <div class="text-center">
                     <input type="text" placeholder="description" name="description" value="{{$event->description}}" class="w-1/4 p-3 rounded-md">
@@ -36,8 +36,11 @@ $images = explode('|', $event->images)
                 <div class="text-center">
                     <input type="date" name="event_date" value="{{$event->event_date}}" class="w-1/4 p-3 rounded-md">
                 </div>
+                <div class="text-center">
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" style="margin-top:10px">Submit</button>
+                </div>
+
             </div>
-            <button type="submit" class="btn btn-primary" style="margin-top:10px">Submit</button>
             @csrf
             @method('put')
         </form>

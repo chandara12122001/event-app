@@ -142,19 +142,14 @@ class EventController extends Controller
             'price' => $request->price,
             'no_of_seats' => $request->no_of_seats
         ]);
-
-        if ($files = $request->file('files')) {
-            foreach ($files as $file) {
-                $image_name = md5(rand(1000, 10000));
-                $ext = strtolower($file->getClientOriginalExtension());
-                $image_full_name =  $image_name . '.' . $ext;
-                $upload_path = 'images/';
-                $image_url = $upload_path . $image_full_name;
-                $file->move($upload_path, $image_full_name);
-                $request['event_id'] = $event->id;
-                $request['image'] = $image_url;
-                Image::create($request->all());
-            }
+        if($files = $request->file('file')){
+            $filePath = $files->store('public/banner');
+            Image::create(
+                [
+                    'event_id' => $event->id,
+                    'image' => $filePath
+                ]
+            );
         }
         return redirect('/');
     }
