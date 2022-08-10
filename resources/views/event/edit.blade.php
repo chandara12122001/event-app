@@ -34,9 +34,6 @@ $images = explode('|', $event->images)
             <div class="text-center">
                 <input type="date" name="event_date" value="{{$event->event_date}}" class="w-1/4 p-3 rounded-md">
             </div>
-            <div class="input-group-btn">
-                <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
-            </div>
         </div>
         <button type="submit" class="btn btn-primary" style="margin-top:10px">Submit</button>
         @csrf

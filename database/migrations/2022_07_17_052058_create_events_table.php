@@ -22,7 +22,6 @@ class CreateEventsTable extends Migration
             $table->integer('price')->nullable();
             $table->integer('going')->nullable()->default(0);
             $table->integer('no_of_seats');
-            // $table->integer('user_id')->nullable();
             $table->integer('location_id')->nullable();
             $table->timestamps();
         }); 
