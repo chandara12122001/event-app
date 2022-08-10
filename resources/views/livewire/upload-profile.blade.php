@@ -74,7 +74,7 @@
                         <i class="fa-solid fa-pen-to-square"></i>
                     </div>
                     <div>
-                        <p>Edit Name</p>
+                        <a href="updateProfile">Edit Name</a>
                     </div>
                 </div>
                 <div class="flex flex-row space-x-3 p-3 bg-white text-gray-700 rounded-md">
