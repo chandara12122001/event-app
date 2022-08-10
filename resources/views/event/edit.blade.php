@@ -4,7 +4,7 @@ $images = explode('|', $event->images)
 @endphp
 @section('content')
 @foreach ($event->images as $image)
-<img src="{{asset($image->image)}}" width="70px" height="70px" alt="">
+<img src="{{Storage::url($image->image)}}" width="70px" height="70px" alt="">
 <form action="/image/{{$image->id}}" method="POST">
     <button type="submit">X</button>
     @csrf

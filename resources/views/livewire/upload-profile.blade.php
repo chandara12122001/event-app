@@ -109,14 +109,18 @@
                                 <h1>{{$event->title}}</h1>
                             </div>
                             <div class="text-yellow-300">
-                                <a class="w-full">
+                                <a href="/event/{{$event->id}}/edit" class="w-full">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </a>
                             </div>
                             <div class="text-red-500">
-                                <a class="w-full">
-                                    <i class="fa-solid fa-trash"></i>
-                                </a>
+                                <form action="/event/{{$event->id}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit">
+                                        <i class="fa-solid fa-trash cursor-pointer"></i>
+                                    </button>
+                                </form>
                             </div>
                         </div>
                         <div>
