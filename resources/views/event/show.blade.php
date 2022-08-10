@@ -7,7 +7,7 @@
         <div class="bg-gradient-to-t from-gray-900 to-transparent w-full h-full">
             <div class="md:px-36 px-20 py-10 flex flex-col space-y-5">
                 <div class="text-3xl text-white font-bold">
-                    <h1>{{$event->going}}</h1>
+                    <h1>{{$event->title}}</h1>
                 </div>
                 <div class="text-white">
                     <p>{{$event->description}}</p>

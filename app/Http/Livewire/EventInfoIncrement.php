@@ -23,15 +23,13 @@ class EventInfoIncrement extends Component
     public function incrementInterested()
     {
         if ($this->user) {
-            // dd(auth()->user()->id);
-            // dd($this->event->no_of_seats);
             $userInEvents = $this->event->users;
-            // dd($userInEvents);
-            // dd($userInEvents);
             if ($this->event->no_of_seats > 0) {
                 foreach ($userInEvents as $user) {
+                    // echo ($user->id);
                     if ($user->id != $this->user->id) {
                         $this->interested = true;
+                        // dd($user->id, $this->user->id);
                     } else if ($user->id == $this->user->id) {
                         $this->interested = false;
                     }
@@ -62,6 +60,7 @@ class EventInfoIncrement extends Component
             if ($this->event->no_of_seats > 0) {
                 foreach ($userInEvents as $user) {
                     if ($user->id != $this->user->id) {
+                        // dd("not in list");
                         $this->going = true;
                     } else if ($user->id == $this->user->id) {
                         $this->going = false;

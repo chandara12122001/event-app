@@ -25,7 +25,6 @@
         </p>
         @endif
 
-
     </div>
     @if ($user)
     @if ($user->id != $event->organizer[0]->id)
@@ -35,8 +34,6 @@
         <button wire:click="incrementInterested"
             class=" inline-block bg-transparent hover:bg-orange-500 text-orange-700 font-semibold hover:text-white py-2 px-4 border border-orange-500 hover:border-transparent rounded">Interested</button>
     </div>
-
-
     @endif
     @endif
     {{-- <div class="flex flex-row space-x-10">
