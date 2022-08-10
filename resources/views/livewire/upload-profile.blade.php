@@ -85,7 +85,7 @@
                         <i class="fa-solid fa-pen-to-square"></i>
                     </div>
                     <div>
-                        <p>Edit Passwword</p>
+                        <a href="{{route('forget.password.show')}}">Change password</a>
                     </div>
                 </div>
             </div>

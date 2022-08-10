@@ -114,7 +114,7 @@
                   id="exampleCheck2" />
                 <label class="form-check-label inline-block text-gray-800" for="exampleCheck2">Remember me</label>
               </div>
-              <a href="#!" class="text-gray-800">Forgot password?</a>
+              <a href="{{route('forget.password.show')}}" class="text-gray-800">Forgot password?</a>
             </div>
 
             <div class="text-center lg:text-left">
