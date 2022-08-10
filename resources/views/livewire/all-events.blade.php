@@ -111,7 +111,7 @@
                         <div class="text-xl font-bold">
                             <h1>{{$event->title}}</h1>
                         </div>
-                        <div>
+                        <div class="sm:text-lg text-sm hidden sm:block">
                             <p>{{$event->description}}</p>
                         </div>
                         <div>
@@ -139,12 +139,12 @@
                             </div>
                         </div>
                         <div>
-                            <div class="flex flex-row w-full items-center rounded-md">
+                            <div class="flex sm:flex-row w-full flex-col items-center rounded-md sm:text-lg text-sm space-y-3 sm:space-y-0 sm:space-x-3">
                                 <div
-                                    class="w-2/3 text-center p-2 bg-red-500 text-white rounded-tl-md rounded-bl-md cursor-pointer">
+                                    class="sm:w-2/3 w-full text-center p-2 bg-red-500 text-white rounded-tl-md rounded-bl-md cursor-pointer rounded-md">
                                     <p>Going</p>
                                 </div>
-                                <div class="text-center p-2 bg-orange-400 text-white w-1/3 rounded-tr-md rounded-br-md">
+                                <div class="text-center p-2 bg-orange-400 text-white sm:w-1/3 w-full rounded-tr-md rounded-br-md rounded-md">
                                     <a href="/event/{{$event->id}}">Learn more</a>
                                 </div>
                             </div>

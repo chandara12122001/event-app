@@ -78,7 +78,7 @@
         <p class="mt-4 px-8">{{$event->description}}</p> --}}
         {{-- End facilities --}}
         {{-- Start important info --}}
-        <div class="m-10 md:px-56 px-20">
+        <div class="m-10 sm:px-56 px-5">
             <div
                 class="flex md:flex-row md:space-x-28  md:space-y-0 flex-col space-y-10 border border-orange-400 rounded-md p-10 items-center justify-center">
                 <div class="flex flex-row space-x-5 text-orange-400 items-center justify-center text-xl">
@@ -112,20 +112,20 @@
         </div>
         {{-- End important info --}}
         {{-- Start description --}}
-        <div class="m-10 md:px-56 px-20">
+        <div class="m-10 sm::px-56 px-3">
             <div class="flex flex-col space-y-6">
                 <div class="text-xl text-gray-800 font-bold">
                     <p>Description</p>
                 </div>
-                <div class="w-full text-justify">
+                <div class="w-full text-justify sm:text-lg text-sm">
                     <p>{{$event->description}}</p>
                 </div>
             </div>
         </div>
         {{-- End description --}}
         {{-- Start detail info --}}
-        <div class="m-10 md:px-56 px-20">
-            <div class="flex md:flex-row md:space-x-10 md:space-y-0 flex-col space-y-10">
+        <div class="m-10 sm:px-56 px-3">
+            <div class="flex md:flex-row md:space-x-10 md:space-y-0 flex-col space-y-10 w-full">
                 <div class="md:w-1/2 w-full">
                     <div class="flex flex-col space-y-3">
                         <div class="w-full rounded-md text-center p-2 bg-red-400 text-white">
@@ -143,17 +143,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="md:w-1/2 w-full">
+                <div class="sm:w-1/2 w-full">
                     <div class="flex flex-col space-y-5">
                         <div class="flex flex-col border border-green-400 rounded-md w-full h-1/2">
                             <div class="flex flex-row space-x-3 p-3 w-full items-center">
                                 <div class="text-green-400">
                                     <i class="fa-solid fa-user"></i>
                                 </div>
-                                <div>
+                                <div class="sm:text-lg text-sm">
                                     {{$event->organizer[0]->name}}
                                 </div>
-                                <div class=" flex-grow flex flex-row justify-end text-white relative right-0">
+                                <div class=" flex-grow flex flex-row justify-end text-white relative right-0 sm:text-lg text-sm">
                                     <div class=" bg-green-400 rounded-md p-2">
                                         <p>Organizer</p>
                                     </div>
@@ -163,18 +163,18 @@
                                 <div class="text-green-400">
                                     <i class="fa-solid fa-phone"></i>
                                 </div>
-                                <div>
+                                <div class="sm:text-lg text-sm">
                                     @if (!empty($event->oragnizer[0]->phone_number))
                                     {{$event->organizer[0]->phone_number}}
 
                                     @endif
                                 </div>
                             </div>
-                            <div class="flex flex-row space-x-3 p-3">
+                            <div class="flex flex-row space-x-3 p-3 w-full">
                                 <div class="text-green-400">
                                     <i class="fa-solid fa-envelope"></i>
                                 </div>
-                                <div>
+                                <div class="w-full sm:text-lg text-sm">
                                     {{$event->organizer[0]->email}}
                                 </div>
                             </div>
@@ -205,7 +205,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex flex-row">
+                        <div class="flex flex-row w-full">
                             @livewire('event-info-increment', ['event' => $event, 'user' => Auth::user()])
                             {{-- <div
                                 class="w-1/3 p-2 text-center text-white rounded-md bg-orange-400 rounded-tr-none rounded-br-none">
