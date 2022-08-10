@@ -112,7 +112,7 @@
         </div>
         {{-- End important info --}}
         {{-- Start description --}}
-        <div class="m-10 sm::px-56 px-3">
+        <div class="m-10 sm:px-56 px-3">
             <div class="flex flex-col space-y-6">
                 <div class="text-xl text-gray-800 font-bold">
                     <p>Description</p>
@@ -125,7 +125,7 @@
         {{-- End description --}}
         {{-- Start detail info --}}
         <div class="m-10 sm:px-56 px-3">
-            <div class="flex md:flex-row md:space-x-10 md:space-y-0 flex-col space-y-10 w-full">
+            <div class="flex sm:flex-row sm:space-x-10 sm:space-y-0 flex-col space-y-10 w-full">
                 <div class="md:w-1/2 w-full">
                     <div class="flex flex-col space-y-3">
                         <div class="w-full rounded-md text-center p-2 bg-red-400 text-white">
@@ -211,7 +211,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="flex flex-row w-full">
+                                <div class="flex sm:flex-row flex-col w-full">
 
                                     <div class="flex flex-row">
                                         @livewire('event-info-increment', ['event' => $event, 'user' => Auth::user()])
@@ -220,10 +220,9 @@
                             </div>
                         </div>
                     </div>
-                    {{-- End detail info --}}
-                    @endsection
                 </div>
             </div>
         </div>
     </div>
 </div>
+@endsection
