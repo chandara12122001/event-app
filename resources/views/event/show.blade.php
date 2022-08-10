@@ -166,12 +166,9 @@
                                     <i class="fa-solid fa-phone"></i>
                                 </div>
                                 <div class="sm:text-lg text-sm">
-                                    @if (!empty($event->oragnizer[0]->phone_number))
                                     <div>
                                         {{$event->organizer[0]->phone_number}}
                                     </div>
-                                    @endif
-
                                 </div>
                             </div>
                             @endif
@@ -184,35 +181,8 @@
                                             {{$event->organizer[0]->email}}
                                         </div>
                                     </div>
-                                </div>
-                                <div class="flex flex-col rounded-md w-full h-1/2">
-                                    <div class="flex flex-row space-x-5 p-3">
-                                        <div class="text-red-400">
-                                            <i class="fa-solid fa-calendar-check"></i>
-                                        </div>
-                                        <div>
-                                            <p>{{$event->going}} people is going</p>
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-row space-x-5 p-3">
-                                        <div class="text-red-400">
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                        <div>
-                                            <p id="interestedNum">{{$event->interested}} is interested</p>
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-row space-x-5 p-3">
-                                        <div class="text-red-400">
-                                            <i class="fa-solid fa-chair"></i>
-                                        </div>
-                                        <div>
-                                            <p>{{$event->no_of_seats}} seats are available </p>
-                                        </div>
-                                    </div>
-                                </div>
+                                </div>  
                                 <div class="flex sm:flex-row flex-col w-full">
-
                                     <div class="flex flex-row">
                                         @livewire('event-info-increment', ['event' => $event, 'user' => Auth::user()])
                                     </div>
