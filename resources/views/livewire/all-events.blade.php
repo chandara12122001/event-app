@@ -142,7 +142,7 @@
                             <div class="flex flex-row w-full items-center rounded-md">
                                 <div
                                     class="w-2/3 text-center p-2 bg-red-500 text-white rounded-tl-md rounded-bl-md cursor-pointer">
-                                    <p>Going</p>
+                                    <p>{{$event->going}} Going</p>
                                 </div>
                                 <div class="text-center p-2 bg-orange-400 text-white w-1/3 rounded-tr-md rounded-br-md">
                                     <a href="/event/{{$event->id}}">Learn more</a>
