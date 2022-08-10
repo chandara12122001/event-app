@@ -104,8 +104,20 @@
                         style="background-image:url('https://www.eccc.gov.kh/sites/default/files/inline-images/IMG-20220217-WA0008%20%28002%29.jpg')">
                     </div>
                     <div class="flex flex-col space-y-3 w-2/3 p-3">
-                        <div class="text-xl font-bold">
-                            <h1>{{$event->title}}</h1>
+                        <div class="flex flex-row space-x-2 items-center justify-center">
+                            <div class="text-xl font-bold">
+                                <h1>{{$event->title}}</h1>
+                            </div>
+                            <div class="text-yellow-300">
+                                <a class="w-full">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                            </div>
+                            <div class="text-red-500">
+                                <a class="w-full">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </div>
                         </div>
                         <div>
                             <p>{{$event->description}}</p>
