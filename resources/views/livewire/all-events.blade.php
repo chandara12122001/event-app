@@ -141,8 +141,13 @@
                         <div>
                             <div class="flex sm:flex-row w-full flex-col items-center rounded-md sm:text-lg text-sm space-y-3 sm:space-y-0 sm:space-x-3">
                                 <div
+<<<<<<< HEAD
                                     class="sm:w-2/3 w-full text-center p-2 bg-red-500 text-white rounded-tl-md rounded-bl-md cursor-pointer rounded-md">
                                     <p>Going</p>
+=======
+                                    class="w-2/3 text-center p-2 bg-red-500 text-white rounded-tl-md rounded-bl-md cursor-pointer">
+                                    <p>{{$event->going}} Going</p>
+>>>>>>> 3805046237f34504fb3746df3c9c98207c66aa24
                                 </div>
                                 <div class="text-center p-2 bg-orange-400 text-white sm:w-1/3 w-full rounded-tr-md rounded-br-md rounded-md">
                                     <a href="/event/{{$event->id}}">Learn more</a>

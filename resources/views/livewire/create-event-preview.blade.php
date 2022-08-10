@@ -52,10 +52,10 @@
                     <div
                         class="flex md:flex-row md:space-x-28  md:space-y-0 flex-col space-y-10 border border-orange-400 rounded-md p-10 items-center justify-center">
                         <div class="flex flex-row space-x-5 text-orange-400 items-center justify-center text-xl">
-                            @if ($location || $new_location)
                             <div>
                                 <i class="fa-solid fa-location-dot"></i>
                             </div>
+                            @if ($location || $new_location)
                             <div class="text-gray-900">
                                 @if ($location)
                                 <p>{{$location}}</p>
@@ -118,7 +118,6 @@
                                     </div>
                                 </div>
                                 @if($location)
-                                {{-- {{dd($location)}} --}}
                                 <div class="w-full rounded-md shadow-md">
                                     <div id='map' style='width: 400px; height: 300px;'></div>
                                 </div>
@@ -141,16 +140,18 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @if (auth()->user()->phone_number)
+
                                     <div class="flex flex-row space-x-3 p-3">
                                         <div class="text-green-400">
                                             <i class="fa-solid fa-phone"></i>
                                         </div>
                                         <div>
-                                            @if (auth()->user()->phone_number))
                                             {{auth()->user()->phone_number}}
-                                            @endif
                                         </div>
                                     </div>
+                                    @endif
+
                                     <div class="flex flex-row space-x-3 p-3">
                                         <div class="text-green-400">
                                             <i class="fa-solid fa-envelope"></i>
@@ -221,7 +222,7 @@
                          class="border rounded-md p-3 bg-white w-full outline-none"></textarea>
                      <div class="flex flex-row space-x-5 w-full">
                          <div class="border rounded-md p-3 bg-white w-full">
-                             <input type="number" placeholder="price" wire:model="price" class=" outline-none w-full">>
+                             <input type="number" placeholder="price" wire:model="price" class=" outline-none w-full">
                          </div>
                          <div class="border rounded-md p-3 bg-white w-full">
                              <input type="number" placeholder="no_of_seats" wire:model="no_of_seats"

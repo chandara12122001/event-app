@@ -7,7 +7,7 @@
         <div class="bg-gradient-to-t from-gray-900 to-transparent w-full h-full">
             <div class="md:px-36 px-20 py-10 flex flex-col space-y-5">
                 <div class="text-3xl text-white font-bold">
-                    <h1>{{$event->going}}</h1>
+                    <h1>{{$event->title}}</h1>
                 </div>
                 <div class="text-white">
                     <p>{{$event->description}}</p>
@@ -159,18 +159,26 @@
                                     </div>
                                 </div>
                             </div>
+                            @if (!empty($event->oragnizer[0]->phone_number))
                             <div class="flex flex-row space-x-3 p-3">
                                 <div class="text-green-400">
                                     <i class="fa-solid fa-phone"></i>
                                 </div>
+<<<<<<< HEAD
                                 <div class="sm:text-lg text-sm">
                                     @if (!empty($event->oragnizer[0]->phone_number))
+=======
+                                <div>
+>>>>>>> 3805046237f34504fb3746df3c9c98207c66aa24
                                     {{$event->organizer[0]->phone_number}}
-
-                                    @endif
                                 </div>
                             </div>
+<<<<<<< HEAD
                             <div class="flex flex-row space-x-3 p-3 w-full">
+=======
+                            @endif
+                            <div class="flex flex-row space-x-3 p-3">
+>>>>>>> 3805046237f34504fb3746df3c9c98207c66aa24
                                 <div class="text-green-400">
                                     <i class="fa-solid fa-envelope"></i>
                                 </div>
@@ -179,6 +187,7 @@
                                 </div>
                             </div>
                         </div>
+<<<<<<< HEAD
                         <div class="flex flex-col rounded-md w-full h-1/2">
                             <div class="flex flex-row space-x-5 p-3">
                                 <div class="text-red-400">
@@ -206,17 +215,11 @@
                             </div>
                         </div>
                         <div class="flex flex-row w-full">
+=======
+                        
+                        <div class="flex flex-row">
+>>>>>>> 3805046237f34504fb3746df3c9c98207c66aa24
                             @livewire('event-info-increment', ['event' => $event, 'user' => Auth::user()])
-                            {{-- <div
-                                class="w-1/3 p-2 text-center text-white rounded-md bg-orange-400 rounded-tr-none rounded-br-none">
-                                <a onclick="interestedClick()">
-                                    Interested
-                                </a>
-                            </div>
-                            <div
-                                class="w-2/3 p-2 text-center text-white rounded-md bg-red-400 rounded-tl-none rounded-bl-none">
-                                Going
-                            </div> --}}
                         </div>
                     </div>
                 </div>

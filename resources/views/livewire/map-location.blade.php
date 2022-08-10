@@ -4,7 +4,7 @@
 <div>
     {{-- <h1>hello</h1> --}}
     {{-- <h1>{{$event->location}}</h1> --}}
-    <div id='map' style='width: 400px; height: 300px;'></div>
+    <div id='map' style='width: 100%; height: 300px;'></div>
 </div>
 @push('scripts')
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js'></script>

@@ -6,12 +6,12 @@
             style="background-image:url('https://images.hdqwalls.com/wallpapers/sunset-beautiful-painting.jpg')">
             @if ($photo)
             {{-- <img src="{{ $photo->temporaryUrl() }}" style="width: 300px;height:300px"> --}}
-            <div id="profile" class=" bg-red-500 sm:w-40 sm:h-40 w-24 h-24 rounded-full bg-cover bg-top"
+            <div id="profile" class=" bg-gray-500 sm:w-40 sm:h-40 w-24 h-24 rounded-full bg-cover bg-top"
                 style="background-image: url({{$photo->temporaryUrl()}})">
             </div>
             @else
             @if (auth()->user()->profile->isNotEmpty())
-            <div id="profile" class=" bg-red-500 sm:w-40 sm:h-40 w-24 h-24 rounded-full bg-cover bg-top"
+            <div id="profile" class=" bg-gray-500 sm:w-40 sm:h-40 w-24 h-24 rounded-full bg-cover bg-top"
                 style="background-image: url({{Storage::url(auth()->user()->profile->last()->image)}})">
             </div>
             @endif
@@ -132,7 +132,7 @@
                             <div class="flex flex-row w-full items-center rounded-md">
                                 <div
                                     class="w-2/3 text-center p-2 bg-red-500 text-white rounded-tl-md rounded-bl-md cursor-pointer">
-                                    <p>{{$event->going}}</p>
+                                    <p>{{$event->going}} people going</p>
                                 </div>
                                 <div class="text-center p-2 bg-orange-400 text-white w-1/3 rounded-tr-md rounded-br-md">
                                     <a href="/event/{{$event->id}}">Learn more</a>
