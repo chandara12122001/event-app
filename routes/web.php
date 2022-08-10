@@ -98,3 +98,7 @@ Route::get('/userprofile', UploadProfile::class);
 Route::get('/verify', function(){
     return view('auth.verify');
 });
+
+Route::get('/updateProfile', function(){
+    return view('user.update');
+});
