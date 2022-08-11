@@ -17,10 +17,10 @@
                         <a href="/">home</a>
                     </div>
                     <div>
-                        <a href="/">all event</a>
+                        <a href="{{route('allevents')}}">all event</a>
                     </div>
                     <div>
-                        <a href="/">post event</a>
+                        <a href="/event/new">post event</a>
                     </div>
                     <div>
                         <a href="/">about us</a>

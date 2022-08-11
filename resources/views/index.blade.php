@@ -17,7 +17,7 @@
                         </div>
                         <div class="sm:w-1/2 p-3 sm:text-2xl flex flex-row space-x-5 justify-center items-center border-white border rounded-md w-full text-xl cursor-pointer hover:bg-white hover:text-gray-700">
                             <div>
-                                <a href="/">Publish now</a>
+                                <a href="/event/new">Publish now</a>
                             </div>
                             <div>
                                 <i class="fa-solid fa-circle-arrow-right"></i>
@@ -30,8 +30,8 @@
         {{-- End hero --}}
         {{-- Start cards --}}
         <div class="w-full sm:px-32 px-16 my-10">
-            <div class="flex sm:flex-row sm:space-x-36 flex-col space-y-10">
-                <div class="bg-white rounded-sm sm:w-1/2 w-full">
+            <div class="flex sm:flex-row sm:space-x-36 sm:space-y-0 flex-col space-y-10">
+                <div class="bg-white rounded-md sm:w-1/2 w-full">
                     <div class="flex flex-col items-center justify-center space-y-5 w-full p-10">
                         <div class="flex flex-row space-x-10 items-center justify-center">
                             <div class="sm:text-5xl text-orange-400 text-3xl">
@@ -45,12 +45,12 @@
                         </div>      
                         <div class="w-full cursor-pointer">
                             <div class="border p-3 rounded-sm text-center sm:text-xl text-lg text-orange-400 border-orange-400 hover:bg-orange-400 hover:text-white">
-                                <a href="/">Browse</a>
+                                <a href="/allevents">Browse</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="bg-white rounded-sm sm:w-1/2 w-full">
+                <div class="bg-white rounded-md sm:w-1/2 w-full">
                     <div class="flex flex-col items-center justify-center space-y-5 w-full p-10">
                         <div class="flex flex-row space-x-10 items-center justify-center">
                             <div class="sm:text-5xl text-orange-400 text-3xl">
@@ -64,7 +64,7 @@
                         </div>      
                         <div class="w-full cursor-pointer">
                             <div class="border p-3 rounded-sm text-center sm:text-xl text-lg text-orange-400 border-orange-400 hover:bg-orange-400 hover:text-white">
-                                <a href="/">Browse</a>
+                                <a href="/allevents">Browse</a>
                             </div>
                         </div>
                     </div>
