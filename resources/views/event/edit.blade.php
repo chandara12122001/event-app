@@ -5,8 +5,8 @@ $images = explode('|', $event->images)
 @section('content')
 @foreach ($event->images as $image)
 <div class="h-screen">
-    <div class="flex flex-col space-y-3  p-10 items-conter justify-center w-full">
-        <img src="{{Storage::url($image->image)}}" width="70px" height="70px" alt="">
+    <div class="flex flex-col space-y-3  p-10 items-conter justify-center w-1/2">
+        <img src="{{Storage::url($image->image)}}" alt="">
     </div>
     <form action="/image/{{$image->id}}" method="POST" id="cross-btn">
         <button type="button" onclick="deleteImg()">
