@@ -1,8 +1,8 @@
 @section('css')
 <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css' rel='stylesheet' />
 @endsection
-<div class="flex flex-row-reverse space-x-3 w-full">
-            <div class="w-2/3">
+<div class="flex sm:flex-row-reverse space-x-3 w-full flex-col-reverse">
+            <div class="sm:w-2/3 w-full">
                 <div class="mb-10 w-full">
                     @if ($photo)
                     <img class="w-full" src="{{$photo->temporaryUrl()}}" alt="">
@@ -208,7 +208,7 @@
                 </div>
             </div>
             {{-- preview --}}
-           <div class="w-1/3">
+           <div class="sm:w-1/3 w-full">
              <form wire:submit.prevent="save">
                  <div class="sm:p-10 p-5 flex flex-col space-y-10 items-center justify-center">
                      <div class="border rounded-md p-3 bg-white w-full">
