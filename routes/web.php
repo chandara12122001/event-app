@@ -12,6 +12,7 @@ use App\Http\Livewire\AllEvents;
 use App\Http\Livewire\EventInfoIncrement;
 use App\Http\Livewire\MapLocation;
 use App\Http\Livewire\UploadProfile;
+use App\Models\Event;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -27,7 +28,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $events = Event::all();
+    return view('index', compact('events'));
 });
 
 // Route::get('/', [EventController::class, 'index']);

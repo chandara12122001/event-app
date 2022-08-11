@@ -105,7 +105,12 @@
                         <i class="fa-solid fa-ticket"></i>
                     </div>
                     <div class="text-gray-900">
+                        @if ($event->price == 0)
+                        <p>Free entry</p>
+                        @else
                         <p>${{$event->price}} / person</p>
+
+                        @endif
                     </div>
                 </div>
             </div>

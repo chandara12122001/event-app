@@ -119,7 +119,13 @@
                             <div
                                 class="flex sm:flex-row sm:space-x-4 sm:space-y-0 flex-col space-y-3 sm:items-center items-start">
                                 <div class="bg-green-500 rounded-md py-1 px-2 text-white">
-                                    <p>$ {{$event->price}}</p>
+                                    @if ($event->price == 0)
+                                    <p>Free entry</p>
+                                    @else
+                                    <p>
+                                        ${{$event->price}}
+                                    </p>
+                                    @endif
                                 </div>
                                 <div class="flex flex-row space-x-2 items-center">
                                     <div>
